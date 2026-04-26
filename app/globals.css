@@ -1,26 +1,304 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+* {
+  box-sizing: border-box;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+html,
+body {
+  margin: 0;
+  padding: 0;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+.demo-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background:
+    radial-gradient(circle at 20% 10%, rgba(12, 108, 98, 0.24), transparent 36%),
+    radial-gradient(circle at 80% 90%, rgba(183, 134, 75, 0.2), transparent 38%),
+    rgba(6, 12, 20, 0.66);
+  display: grid;
+  place-items: center;
+  z-index: 10000;
+  padding: 20px;
+}
+
+.demo-modal-card {
+  width: min(520px, 100%);
+  max-height: min(88vh, 760px);
+  overflow: auto;
+  background: linear-gradient(
+    180deg,
+    color-mix(in srgb, var(--bg-solid, var(--bg2, #ffffff)) 96%, transparent),
+    color-mix(in srgb, var(--bg-solid, var(--bg2, #ffffff)) 90%, transparent)
+  );
+  border: 1px solid var(--line, var(--bdr, rgba(12, 23, 41, 0.12)));
+  border-radius: 20px;
+  padding: 24px 24px 20px;
+  position: relative;
+  color: var(--ink, #0f1720);
+  box-shadow: 0 24px 80px rgba(8, 18, 30, 0.32);
+}
+
+.demo-modal-eyebrow {
+  display: inline-flex;
+  margin-bottom: 8px;
+  padding: 6px 10px;
+  border-radius: 999px;
+  border: 1px solid color-mix(in srgb, var(--brand, var(--td, #0ea5e9)) 20%, var(--line, var(--bdr, rgba(12, 23, 41, 0.12))));
+  background: color-mix(in srgb, var(--brand, var(--td, #0ea5e9)) 10%, var(--bg-solid, var(--bg2, #ffffff)));
+  color: var(--brand-strong, var(--td, #0ea5e9));
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.11em;
+  text-transform: uppercase;
+}
+
+.demo-modal-card h3 {
+  margin: 0 0 8px;
+  font-size: clamp(1.35rem, 2.5vw, 1.75rem);
+  letter-spacing: -0.02em;
+}
+
+.demo-modal-card p {
+  margin: 0 0 14px;
+  color: var(--ink-soft, var(--ink3, #4f6277));
+  line-height: 1.6;
+}
+
+.demo-modal-close {
+  position: absolute;
+  right: 12px;
+  top: 10px;
+  border: 0;
+  background: transparent;
+  color: var(--ink-faint);
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.demo-modal-track {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 8px;
+  margin-bottom: 14px;
+}
+
+.demo-modal-track button {
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--bg-solid, var(--bg2, #ffffff)) 90%, transparent);
+  color: var(--ink-soft, var(--ink3, #4f6277));
+  padding: 8px 10px;
+  font: inherit;
+  font-size: 0.84rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.demo-modal-track button.is-selected {
+  border-color: transparent;
+  background: linear-gradient(
+    135deg,
+    var(--brand, var(--td, #0ea5e9)),
+    color-mix(in srgb, var(--brand, var(--td, #0ea5e9)) 72%, var(--brand-warm, #b7864b))
+  );
+  color: #f8f7f3;
+  box-shadow: 0 12px 30px var(--brand-glow, rgba(14, 165, 233, 0.26));
+}
+
+.demo-modal-form {
+  display: grid;
+  gap: 10px;
+}
+
+.demo-modal-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.demo-modal-form label {
+  display: grid;
+  gap: 6px;
+  color: var(--ink-soft, var(--ink3, #4f6277));
+  font-size: 0.86rem;
+  font-weight: 700;
+}
+
+.demo-modal-form input,
+.demo-modal-form select,
+.demo-modal-form textarea {
+  border: 1px solid var(--line, var(--bdr, rgba(12, 23, 41, 0.12)));
+  border-radius: 12px;
+  background: color-mix(in srgb, var(--bg-solid, var(--bg2, #ffffff)) 88%, transparent);
+  color: var(--ink, #0f1720);
+  padding: 10px 12px;
+  font: inherit;
+}
+
+.demo-modal-form button {
+  border: 0;
+  border-radius: 999px;
+  background: linear-gradient(
+    135deg,
+    var(--brand, var(--td, #0ea5e9)),
+    color-mix(in srgb, var(--brand, var(--td, #0ea5e9)) 72%, var(--brand-warm, #b7864b))
+  );
+  color: #f8f7f3;
+  padding: 12px 16px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.demo-modal-success {
+  border: 1px solid color-mix(in srgb, var(--brand, var(--td, #0ea5e9)) 24%, var(--line, var(--bdr, rgba(12, 23, 41, 0.12))));
+  background: color-mix(in srgb, var(--brand, var(--td, #0ea5e9)) 10%, var(--bg-solid, var(--bg2, #ffffff)));
+  color: var(--ink, #0f1720);
+  border-radius: 12px;
+  padding: 12px;
+  display: grid;
+  gap: 4px;
+}
+
+.demo-modal-success span {
+  color: var(--ink-soft, var(--ink3, #4f6277));
+}
+
+@media (max-width: 680px) {
+  .demo-modal-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .demo-modal-track {
+    grid-template-columns: 1fr;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* Keep Next.js dev portal position unmanaged by app CSS. */
+nextjs-portal {
+  left: unset !important;
+  top: unset !important;
+}
+
+/* Keep legacy top nav links accessible on mobile via horizontal scroll. */
+@media (max-width: 860px) {
+  main[class*="page-"] nav#nav {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    padding-right: 12px !important;
+  }
+
+  main[class*="page-"] nav#nav::-webkit-scrollbar {
+    display: none;
+  }
+
+  main[class*="page-"] nav#nav .nl,
+  main[class*="page-"] nav#nav .nl.nav-sector-btn {
+    display: inline-flex !important;
+    flex: 0 0 auto;
+    width: auto !important;
+    min-height: 40px;
+    white-space: nowrap;
+  }
+
+  main[class*="page-"] nav#nav .nav-r {
+    margin-left: 8px;
+    flex: 0 0 auto;
+  }
+}
+
+main {
+  overflow-x: clip;
+}
+
+main[data-screen="mobile"] img,
+main[data-screen="mobile"] video {
+  max-width: 100%;
+  height: auto;
+}
+
+main [data-motion] {
+  opacity: 0;
+  transform: translate3d(0, 18px, 0) scale(0.995);
+  transition:
+    opacity 420ms cubic-bezier(0.22, 1, 0.36, 1),
+    transform 420ms cubic-bezier(0.22, 1, 0.36, 1);
+  transition-delay: calc(var(--motion-delay, 0) * 1ms);
+  will-change: transform, opacity;
+}
+
+main [data-motion="hero"] {
+  transform: translate3d(0, 10px, 0);
+}
+
+main [data-motion="card"] {
+  transform: translate3d(0, 16px, 0) scale(0.99);
+}
+
+main [data-motion][data-motion-visible="true"] {
+  opacity: 1;
+  transform: translate3d(0, 0, 0) scale(1);
+}
+
+main.page-business .ag,
+main.page-government .ag,
+main.page-ngo .ag,
+main.page-freya .ag,
+main.page-business .cc,
+main.page-government .cc,
+main.page-ngo .cc,
+main.page-freya .feature-card {
+  transition:
+    transform 220ms cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 220ms cubic-bezier(0.22, 1, 0.36, 1),
+    border-color 220ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+main.page-business .ag:hover,
+main.page-government .ag:hover,
+main.page-ngo .ag:hover,
+main.page-freya .ag:hover,
+main.page-business .cc:hover,
+main.page-government .cc:hover,
+main.page-ngo .cc:hover,
+main.page-freya .feature-card:hover {
+  transform: translateY(-3px);
+}
+
+main[data-screen="mobile"] .hero-inner {
+  padding-left: 20px !important;
+  padding-right: 20px !important;
+}
+
+main[data-screen="mobile"] .scroll-inner {
+  animation-duration: 40s !important;
+}
+
+main[data-screen="mobile"] .hero-glow,
+main[data-screen="mobile"] .hero-dots {
+  opacity: 0.5;
+}
+
+main[data-screen="tablet"] .hero-inner {
+  gap: 40px !important;
+}
+
+main[data-reduced-motion="true"] *,
+main[data-reduced-motion="true"] *::before,
+main[data-reduced-motion="true"] *::after {
+  animation-duration: 0.01ms !important;
+  animation-iteration-count: 1 !important;
+  transition-duration: 0.01ms !important;
+  scroll-behavior: auto !important;
 }
