@@ -29,7 +29,7 @@ export const buildPageMetadata = ({
   description?: string;
 }): Metadata => {
   const absoluteUrl = buildAbsoluteUrl(route);
-  const defaultOgImage = buildAbsoluteUrl("/assets/logos/antarious-main.svg");
+  const defaultOgImage = buildAbsoluteUrl("/assets/logos/antarious-main-header.png");
   const resolvedDescription = description?.trim() || "Antarious AI platform";
   const metadata: Metadata = {
     title,

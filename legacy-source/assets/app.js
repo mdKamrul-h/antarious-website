@@ -45,7 +45,7 @@ function renderHeader() {
     <header class="site-header" id="top">
       <div class="shell header-shell">
         <a class="brand" href="index.html" aria-label="Antarious home">
-          <img class="brand-logo brand-logo--light" src="assets/logos/antarious-main.svg" alt="Antarious">
+          <img class="brand-logo brand-logo--light" src="assets/logos/antarious-main-header.png" alt="Antarious">
           <img class="brand-logo brand-logo--dark" src="assets/logos/antarious-white.png" alt="Antarious">
         </a>
         <nav class="primary-nav" aria-label="Main navigation">
@@ -109,7 +109,7 @@ function renderFooter() {
         <div class="footer-grid">
           <div>
             <a class="brand" href="index.html" aria-label="Antarious home">
-              <img class="brand-logo brand-logo--light" src="assets/logos/antarious-main.svg" alt="Antarious">
+              <img class="brand-logo brand-logo--light" src="assets/logos/antarious-main-header.png" alt="Antarious">
               <img class="brand-logo brand-logo--dark" src="assets/logos/antarious-white.png" alt="Antarious">
             </a>
             <p class="footer-brand-copy">Antarious is the AI operating infrastructure for organisations that cannot afford slow execution, fragmented intelligence, or weak governance.</p>

@@ -7,7 +7,7 @@ export const getOrganizationSchema = () => {
     "@type": "Organization",
     name: "Antarious",
     url: siteUrl,
-    logo: `${siteUrl}/assets/logos/antarious-main.svg`,
+    logo: `${siteUrl}/assets/logos/antarious-main-header.png`,
   };
 };
 
