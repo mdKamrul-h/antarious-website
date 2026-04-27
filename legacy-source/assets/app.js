@@ -149,19 +149,23 @@ function renderFooter() {
   if (yearNode) yearNode.textContent = String(new Date().getFullYear());
 }
 
-function setTheme(theme) {
-  document.documentElement.dataset.theme = theme;
-  localStorage.setItem("antarious-theme", theme);
+function setTheme() {
+  document.documentElement.dataset.theme = "light";
+  document.documentElement.classList.remove("dark");
+  document.documentElement.style.colorScheme = "light";
+  try {
+    localStorage.setItem("antarious-theme", "light");
+  } catch (e) {
+    /* ignore */
+  }
 }
 
 function toggleTheme() {
-  const next = document.documentElement.dataset.theme === "dark" ? "light" : "dark";
-  setTheme(next);
+  setTheme();
 }
 
 function initTheme() {
-  const savedTheme = localStorage.getItem("antarious-theme") || "light";
-  setTheme(savedTheme);
+  setTheme();
 }
 
 function initReveal() {

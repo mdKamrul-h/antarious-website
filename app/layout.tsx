@@ -9,6 +9,9 @@ export const metadata: Metadata = {
   title: "Antarious",
   description: "Antarious website migration",
   metadataBase: new URL(getSiteUrl()),
+  other: {
+    "color-scheme": "light",
+  },
 };
 
 export default function RootLayout({
@@ -21,18 +24,16 @@ export default function RootLayout({
   const themeBootScript = `
     (function () {
       try {
-        var storageTheme = localStorage.getItem("antarious-theme");
-        var prefersDark = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
-        var selected = storageTheme || (prefersDark ? "dark" : "light");
-        document.documentElement.setAttribute("data-theme", selected);
-      } catch (error) {
-        document.documentElement.setAttribute("data-theme", "light");
-      }
+        localStorage.setItem("antarious-theme", "light");
+      } catch (e) {}
+      document.documentElement.setAttribute("data-theme", "light");
+      document.documentElement.classList.remove("dark");
+      document.documentElement.style.colorScheme = "light";
     })();
   `;
 
   return (
-    <html lang="en" className="h-full antialiased" suppressHydrationWarning>
+    <html lang="en" className="h-full antialiased" data-theme="light" suppressHydrationWarning>
       <body className="min-h-full">
         <script dangerouslySetInnerHTML={{ __html: themeBootScript }} />
         <ThemeController />
