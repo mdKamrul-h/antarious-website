@@ -945,11 +945,25 @@ html[data-theme="dark"] .ai-svg-icon {
 .doc-section.collapsed .doc-section-toggle::after{content:"▸"}
 .callout-line{margin:14px 0 8px !important;padding:12px 14px !important;border-radius:12px;border:1px solid rgba(14,165,233,.16) !important;background:linear-gradient(135deg, rgba(14,165,233,.1), rgba(255,255,255,.9)) !important;color:#075985 !important}
 .callout-line + p{margin:0 0 12px 4px !important;padding:10px 12px;border-left:3px solid rgba(14,165,233,.26);border-radius:0 10px 10px 0;background:linear-gradient(180deg, rgba(248,251,255,.95), rgba(255,255,255,.95))}
+details.faq-disclosure{margin:14px 0 10px;border-radius:12px;border:1px solid rgba(14,165,233,.16);background:linear-gradient(135deg, rgba(14,165,233,.1), rgba(255,255,255,.9));overflow:hidden;transition:box-shadow .2s ease,border-color .2s ease}
+details.faq-disclosure[open]{box-shadow:0 10px 24px rgba(14,165,233,.12);border-color:rgba(14,165,233,.28)}
+summary.faq-summary{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 14px;cursor:pointer;list-style:none;font-family:"Outfit",sans-serif;font-weight:700;color:#075985;-webkit-user-select:none;user-select:none}
+summary.faq-summary::-webkit-details-marker{display:none}
+summary.faq-summary .faq-summary-inner{flex:1;min-width:0;line-height:1.45}
+.faq-chevron{flex-shrink:0;width:26px;height:26px;border-radius:999px;border:1px solid rgba(14,165,233,.28);background:rgba(14,165,233,.1);position:relative;transition:transform .22s ease,background .2s ease}
+details.faq-disclosure[open] .faq-chevron{background:rgba(14,165,233,.16)}
+.faq-chevron::after{content:"";position:absolute;left:50%;top:50%;width:7px;height:7px;margin-top:-1px;border-right:2px solid #0284C7;border-bottom:2px solid #0284C7;transform:translate(-50%,-55%) rotate(45deg);transition:transform .22s ease}
+details.faq-disclosure[open] .faq-chevron::after{transform:translate(-50%,-55%) rotate(225deg)}
+summary.faq-summary:hover .faq-chevron{border-color:rgba(14,165,233,.45)}
+.faq-answer{padding:0 14px 14px;border-top:1px solid rgba(14,165,233,.12);background:rgba(255,255,255,.55)}
+.faq-answer > p:first-child{margin:12px 0 12px 4px!important;padding:10px 12px!important;border-left:3px solid rgba(14,165,233,.26)!important;border-radius:0 10px 10px 0!important;background:linear-gradient(180deg, rgba(248,251,255,.95), rgba(255,255,255,.95))!important;color:#30455f!important;line-height:1.82!important}
+.faq-answer > p:not(:first-child){margin:0 0 14px!important;padding:0!important;border:none!important;background:transparent!important;color:#334155!important;line-height:1.75!important}
+.faq-answer > ul{margin:8px 0 14px 6px!important}
 .doc-section ul{border:1px solid rgba(14,165,233,.14);border-radius:12px;background:rgba(14,165,233,.04);padding:10px 14px 10px 24px !important}
 .faq-progress{position:fixed;top:0;left:0;height:3px;width:0;z-index:1600;background:linear-gradient(90deg,#0EA5E9,#2EC4B6);box-shadow:0 4px 12px rgba(14,165,233,.35)}
 @media (max-width:1040px){.faq-layout{grid-template-columns:1fr !important}.faq-sidebar{position:relative !important;top:0 !important}}
 @media (max-width:720px){.hero{padding:30px 18px !important}.doc-section-head{padding:14px 14px}.doc-section-body{padding:14px}.faq-controls{padding:10px}}
-@media (prefers-reduced-motion: reduce){.doc-section,.doc-section-body,.faq-toc a,.callout-line{transition:none !important}}
+@media (prefers-reduced-motion: reduce){.doc-section,.doc-section-body,.faq-toc a,.callout-line,details.faq-disclosure,.faq-chevron,.faq-chevron::after{transition:none !important}}
 </style>
 </head>
 <body>
@@ -1569,6 +1583,52 @@ html[data-theme="dark"] .ai-svg-icon {
   </div>
   <script>
     (function () {
+      function wrapFaqPairsInDetails() {
+        document.querySelectorAll('.doc-section-body').forEach(function (body) {
+          var callouts = body.querySelectorAll(':scope > p.callout-line');
+          callouts.forEach(function (qEl) {
+            if (!qEl.parentNode) return;
+
+            var details = document.createElement('details');
+            details.className = 'faq-disclosure';
+
+            var summary = document.createElement('summary');
+            summary.className = 'faq-summary';
+            summary.setAttribute('aria-label', 'Toggle answer');
+
+            var inner = document.createElement('span');
+            inner.className = 'faq-summary-inner';
+            while (qEl.firstChild) {
+              inner.appendChild(qEl.firstChild);
+            }
+            summary.appendChild(inner);
+
+            var chev = document.createElement('span');
+            chev.className = 'faq-chevron';
+            chev.setAttribute('aria-hidden', 'true');
+            summary.appendChild(chev);
+
+            details.appendChild(summary);
+
+            var answer = document.createElement('div');
+            answer.className = 'faq-answer';
+
+            var node = qEl.nextSibling;
+            while (node) {
+              if (node.nodeType === 1 && node.matches && node.matches('p.callout-line')) {
+                break;
+              }
+              var next = node.nextSibling;
+              answer.appendChild(node);
+              node = next;
+            }
+
+            details.appendChild(answer);
+            qEl.parentNode.replaceChild(details, qEl);
+          });
+        });
+      }
+
       var toc = document.getElementById('faq-toc');
       if (!toc) return;
 
@@ -1662,6 +1722,7 @@ html[data-theme="dark"] .ai-svg-icon {
       }
 
       decorateSections();
+      wrapFaqPairsInDetails();
 
       var observer = new IntersectionObserver(function (entries) {
         var visible = entries
@@ -1705,6 +1766,9 @@ html[data-theme="dark"] .ai-svg-icon {
       if (expandBtn) {
         expandBtn.addEventListener('click', function () {
           sections.forEach(function (section) { setSectionOpen(section, true); });
+          document.querySelectorAll('details.faq-disclosure').forEach(function (d) {
+            d.setAttribute('open', '');
+          });
           updateStateLabel();
         });
       }
@@ -1712,6 +1776,9 @@ html[data-theme="dark"] .ai-svg-icon {
       if (collapseBtn) {
         collapseBtn.addEventListener('click', function () {
           sections.forEach(function (section) { setSectionOpen(section, false); });
+          document.querySelectorAll('details.faq-disclosure').forEach(function (d) {
+            d.removeAttribute('open');
+          });
           updateStateLabel();
         });
       }

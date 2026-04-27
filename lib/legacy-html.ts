@@ -8,6 +8,12 @@ type LegacyMetadata = {
   description?: string;
 };
 
+type DepartmentCtaConfig = {
+  label: string;
+  mailtoHref: string;
+  color: string;
+};
+
 export type LegacyHtmlPage = {
   bodyHtml: string;
   bodyClassName?: string;
@@ -151,6 +157,67 @@ const rewriteLegacyScriptPaths = (input: string): string => {
   );
 };
 
+const removeLegacyFooterTrustItem = (input: string): string =>
+  input
+    .replace(/<li\b[^>]*>\s*Trust\s*<\/li>/gi, "")
+    .replace(
+      /<li\b[^>]*>\s*(?:<a\b[^>]*>)?\s*Trust\s*(?:<\/a>)?\s*<\/li>/gi,
+      "",
+    );
+
+const removeLegacyFooterResourceItems = (input: string): string =>
+  input
+    .replace(
+      /<li\b[^>]*>\s*(?:<a\b[^>]*>)?\s*Webinars\s*(?:<\/a>)?[\s\S]*?<\/li>/gi,
+      "",
+    )
+    .replace(
+      /<li\b[^>]*>\s*(?:<a\b[^>]*>)?\s*Partner Programme\s*(?:<\/a>)?[\s\S]*?<\/li>/gi,
+      "",
+    );
+
+const DEPARTMENT_CTA_CONFIG: Partial<Record<string, DepartmentCtaConfig>> = {
+  "business.html": {
+    label: "Request Business Demo",
+    mailtoHref: "mailto:sales@antarious.com?subject=Business%20Demo%20Request",
+    color: "#0B74D8",
+  },
+  "government.html": {
+    label: "Request Government Briefing",
+    mailtoHref: "mailto:sales@antarious.com?subject=Government%20Briefing%20Request",
+    color: "#7A1F5C",
+  },
+  "ngo.html": {
+    label: "Request NGO Demo",
+    mailtoHref: "mailto:sales@antarious.com?subject=NGO%20Demo%20Request",
+    color: "#138A4A",
+  },
+};
+
+const personalizeDepartmentDemoCta = (input: string, fileName: string): string => {
+  const config = DEPARTMENT_CTA_CONFIG[fileName.toLowerCase()];
+  if (!config) {
+    return input;
+  }
+
+  const buttonSvg = `<svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M3 8h10M9 4l4 4-4 4"/></svg>`;
+  const ctaInlineStyle = `style="background:${config.color};color:#ffffff;border-color:${config.color}"`;
+
+  return input
+    .replace(
+      /<button class="btn-nav-cta" id="navCtaBtn">[\s\S]*?<\/button>/i,
+      `<button class="btn-nav-cta" id="navCtaBtn" onclick="window.location.href='${config.mailtoHref}'" ${ctaInlineStyle}>${config.label} →</button>`,
+    )
+    .replace(
+      /<button class="btn btn-p">[\s\S]*?<\/button>/i,
+      `<button class="btn btn-p" onclick="window.location.href='${config.mailtoHref}'" ${ctaInlineStyle}>${config.label} ${buttonSvg}</button>`,
+    )
+    .replace(
+      /<button class="btn-cta-p">[\s\S]*?<\/button>/i,
+      `<button class="btn-cta-p" onclick="window.location.href='${config.mailtoHref}'" ${ctaInlineStyle}>${config.label} ${buttonSvg}</button>`,
+    );
+};
+
 const stripInlineScriptTags = (input: string): string =>
   input.replace(/<script\b[^>]*>[\s\S]*?<\/script>/gi, "");
 
@@ -171,7 +238,14 @@ export async function loadLegacyHtml(fileName: string): Promise<LegacyHtmlPage> 
   const bodyClassName = extractBodyClassName(html);
   const rawBodyHtml = extractMatch(html, /<body[^>]*>([\s\S]*?)<\/body>/i) ?? html;
   const bodyHtml = rewriteLegacyBodyQuotedPaths(
-    rewriteLegacyAssetAttributes(rewriteLegacyHtmlLinks(stripInlineScriptTags(rawBodyHtml))),
+    personalizeDepartmentDemoCta(
+      removeLegacyFooterResourceItems(
+        removeLegacyFooterTrustItem(
+          rewriteLegacyAssetAttributes(rewriteLegacyHtmlLinks(stripInlineScriptTags(rawBodyHtml))),
+        ),
+      ),
+      fileName,
+    ),
   );
   const title = extractMatch(html, /<title[^>]*>([\s\S]*?)<\/title>/i) ?? "Antarious";
   const description = extractMatch(

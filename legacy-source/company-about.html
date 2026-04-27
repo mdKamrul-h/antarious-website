@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>About Antarious | Antarious</title>
+  <meta name="description" content="Learn who builds Antarious AI and Freya, what we believe about human-centred automation, how we deploy with customers, and how to reach our team at hello@antarious.com.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800;900&family=DM+Sans:wght@400;500;700&family=DM+Mono:wght@500;700&display=swap" rel="stylesheet">
   <style>
@@ -739,8 +740,58 @@ html[data-theme="dark"] .ai-svg-icon {
 
 
 <link rel="preload" as="image" href="assets/logos/antarious-main.svg">
+<style id="about-page-redesign">
+.about-wrap{max-width:1200px!important}
+.about-hero{
+  background:linear-gradient(135deg,#061a2f 0%,#0b2740 58%,#103a4f 100%);
+  border-radius:24px;padding:42px 38px 46px;margin-bottom:28px;box-shadow:0 22px 48px rgba(2,24,44,.22);
+  position:relative;overflow:hidden;
+}
+.about-hero::before{
+  content:"";position:absolute;inset:0;
+  background-image:radial-gradient(rgba(56,189,248,.11) 1px,transparent 1px);background-size:34px 34px;pointer-events:none;
+}
+.about-hero .eyebrow,.about-hero h1{color:#f3f8ff!important}
+.about-hero .tagline{color:rgba(243,248,255,.93)!important}
+.about-hero .support{color:rgba(243,248,255,.82)!important;max-width:820px}
+.about-hero>*{position:relative;z-index:1}
+.about-layout{display:grid;grid-template-columns:232px minmax(0,1fr);gap:28px;align-items:start}
+.about-sidebar{
+  position:sticky;top:92px;padding:18px 16px;border-radius:18px;border:1px solid rgba(14,165,233,.14);
+  background:#fff;box-shadow:0 10px 28px rgba(15,23,42,.06);
+}
+.about-sidebar-title{font-family:"Outfit",sans-serif;font-size:13px;font-weight:800;margin:0 0 12px;color:#0f172a}
+.about-toc{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:4px}
+.about-toc a{display:block;padding:8px 10px;border-radius:10px;font-size:12.5px;line-height:1.38;color:#475569;border:1px solid transparent;transition:background .15s,border-color .15s,color .15s}
+.about-toc a:hover{background:rgba(14,165,233,.08);border-color:rgba(14,165,233,.16);color:#0284c7}
+.about-doc.doc{display:flex;flex-direction:column;gap:18px}
+.about-page .doc-section{border-radius:20px!important;border:1px solid rgba(14,165,233,.12)!important;box-shadow:0 12px 32px rgba(15,23,42,.05)!important}
+.about-sector-link{display:inline-flex;margin-top:8px;font-family:"Outfit",sans-serif;font-weight:700;font-size:13px;color:#0284c7!important}
+.about-sector-link:hover{text-decoration:underline}
+.about-contact-section .about-contact-lead{font-size:15px;line-height:1.72;margin-bottom:18px!important;color:#334155!important}
+.about-contact-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(248px,1fr));gap:14px;margin:20px 0 12px}
+.about-mail-card{
+  display:flex;flex-direction:column;gap:8px;padding:18px 16px;border-radius:16px;border:1px solid rgba(14,165,233,.18);
+  background:linear-gradient(180deg,#fff,#f8fbff);text-decoration:none!important;color:inherit!important;
+  transition:transform .22s ease,box-shadow .22s ease,border-color .22s ease;
+}
+.about-mail-card:hover{transform:translateY(-3px);border-color:rgba(14,165,233,.34);box-shadow:0 16px 34px rgba(14,165,233,.14)}
+.about-mail-card.about-mail-card--hello,
+.about-mail-card.about-mail-card--sales{border-color:rgba(14,165,233,.28);background:linear-gradient(135deg,rgba(14,165,233,.1),#fff)}
+.about-mail-label{font-family:"Outfit",sans-serif;font-weight:800;font-size:14px;color:#0f172a}
+.about-mail-desc{font-size:13px;color:#64748b;line-height:1.48;margin:0}
+.about-mail-addr{font-family:"DM Mono",monospace;font-size:12px;font-weight:600;color:#0284c7;margin-top:auto;padding-top:6px;word-break:break-all}
+.about-contact-foot{margin-top:8px!important;font-size:14px;color:#475569!important}
+@media(max-width:960px){
+  .about-layout{grid-template-columns:1fr}
+  .about-sidebar{position:relative;top:0}
+}
+@media(max-width:720px){
+  .about-hero{padding:32px 22px 36px;border-radius:20px}
+}
+</style>
 </head>
-<body>
+<body class="about-page">
   <div class="shell">
     <div class="topbar">
       <a class="brand" href="index.html"><img fetchpriority="high" decoding="async" loading="eager" class="theme-logo-main" src="assets/logos/antarious-main.svg" alt="Antarious AI"></a>
@@ -750,23 +801,37 @@ html[data-theme="dark"] .ai-svg-icon {
         <a class="top-cta" href="index.html#cta">Request Demo</a>
       </div>
     </div>
-    <main class="wrap">
-      <header class="hero">
+    <main class="wrap about-wrap">
+      <header class="hero about-hero">
         <div class="eyebrow">Company</div>
         <h1>About Antarious</h1>
         <p class="tagline">We built an AI operating system for the organisations that run the world&#39;s most important operations — and we built it on the principle that humans must remain in control.</p>
         <p class="support">Antarious AI exists because the people who run complex operations — government departments, development organisations, enterprise teams — deserve better than the tools they have been given. They deserve an AI that works the way they do: proactively, continuously, and accountably.</p>
       </header>
-      <div class="doc">
+      <div class="about-layout">
+        <aside class="about-sidebar" aria-label="On this page">
+          <div class="about-sidebar-title">On this page</div>
+          <ul class="about-toc">
+            <li><a href="#section-01">Who we are</a></li>
+            <li><a href="#section-02">What we believe</a></li>
+            <li><a href="#section-03">What we build</a></li>
+            <li><a href="#section-04">Why we built this</a></li>
+            <li><a href="#section-05">How we work</a></li>
+            <li><a href="#section-06">Sectors</a></li>
+            <li><a href="#section-07">Trust</a></li>
+            <li><a href="#section-08">Contact</a></li>
+          </ul>
+        </aside>
+        <div class="doc about-doc">
 <section class="doc-section" id="section-01">
-<h2>Section 01 — Who We Are</h2>
+<h2>Who We Are</h2>
 <h3>The Company</h3>
 <p>Antarious AI is the developer of Freya — an autonomous AI agent designed to operate as the intelligence and execution layer for complex organisations.</p>
 <p>We are an AI infrastructure company, not a productivity tool vendor. The difference matters. Productivity tools help individuals work faster. Antarious changes how organisations operate — connecting data, automating workflows, surfacing intelligence, and preserving the human accountability that operational environments require.</p>
 <p>Our platform is built for three operating environments: enterprise and GTM teams, government departments and agencies, and NGO and development organisations. These are not three separate products. They are three configurations of the same foundational technology — an agentic AI operating system that adapts to the operational reality of each environment while preserving the same core principles: automation, intelligence, control, and transparency.</p>
 </section>
 <section class="doc-section" id="section-02">
-<h2>Section 02 — What We Believe</h2>
+<h2>What We Believe</h2>
 <h3>The Principles That Shape Everything We Build</h3>
 <p><strong>AI should amplify human capability, not replace human judgement.</strong><br>The work that matters most in complex organisations — strategic decisions, community relationships, policy design, creative direction, negotiation — is irreducibly human. Freya is built to handle everything that doesn&#39;t require a human, so your team can do everything that does. This is not a compromise position. It is our fundamental conviction about where AI creates genuine value.</p>
 <p><strong>Accountability cannot be automated.</strong><br>When an action carries consequence — financial, legal, reputational, human — a person must be accountable for it. Freya prepares. Humans decide and own the outcome. Every Antarious workflow is built around this principle. Not because it is a regulatory requirement (though it often is), but because it is right.</p>
@@ -775,7 +840,7 @@ html[data-theme="dark"] .ai-svg-icon {
 <p><strong>Transparency is not optional in high-stakes environments.</strong><br>Freya shows her work. Every recommendation includes its reasoning, its sources, and its assumptions. Every action is preceded by a human-readable explanation of what Freya is proposing and why. In environments where decisions carry consequence, black boxes are not acceptable.</p>
 </section>
 <section class="doc-section" id="section-03">
-<h2>Section 03 — What We Build</h2>
+<h2>What We Build</h2>
 <h3>The Antarious Platform</h3>
 <p>At the centre of Antarious is <strong>Freya</strong> — an autonomous AI agent that operates as the persistent intelligence layer for your organisation.</p>
 <p>Freya is not a chatbot. She does not wait to be asked. She monitors your operations continuously, proactively surfaces problems and opportunities, executes complex multi-step workflows, and builds an ever-growing institutional memory of everything your organisation knows and has decided.</p>
@@ -785,7 +850,7 @@ html[data-theme="dark"] .ai-svg-icon {
 <p><strong>For NGO and development organisations:</strong> Freya automates M&amp;E reporting, partner data aggregation, beneficiary tracking, donor compliance documentation, and programme forecasting — giving programme officers back the time to do the work that actually matters in the field.</p>
 </section>
 <section class="doc-section" id="section-04">
-<h2>Section 04 — Why We Built This</h2>
+<h2>Why We Built This</h2>
 <h3>The Problem We Are Solving</h3>
 <p>The organisations that Antarious serves — enterprises running complex go-to-market operations, government departments implementing policy at scale, NGOs delivering programmes across distributed partner networks — share a common problem.</p>
 <p>They have more data than they can process. More workflows than their teams can manage. More reporting obligations than they can fulfil without consuming the time that should be going to their actual work. And they have AI tools that promise to help — chatbots, copilots, point solutions — that require constant human instruction to function and produce outputs that still require hours of human work to be useful.</p>
@@ -793,7 +858,7 @@ html[data-theme="dark"] .ai-svg-icon {
 <p>Antarious is a different answer. Not a better chatbot. Not a smarter copilot. An operating system — something that runs your operations continuously, autonomously, and accountably, the way the best-run organisations in the world deserve to run.</p>
 </section>
 <section class="doc-section" id="section-05">
-<h2>Section 05 — How We Work</h2>
+<h2>How We Work</h2>
 <h3>Our Approach to Deployment</h3>
 <p>Every Antarious deployment is different — because every organisation is different. We do not sell a standard SaaS subscription and leave customers to figure out configuration on their own.</p>
 <p>Antarious deployments are built through a structured engagement process:</p>
@@ -803,14 +868,14 @@ html[data-theme="dark"] .ai-svg-icon {
 <p><strong>Ongoing support and development</strong><br>Antarious is an operating system — it becomes more capable and more contextually aware over time. We work with customers on an ongoing basis to expand capabilities, add integrations, and configure new workflows as their operational needs evolve.</p>
 </section>
 <section class="doc-section" id="section-06">
-<h2>Section 06 — The Sectors We Serve</h2>
+<h2>The Sectors We Serve</h2>
 <h3>Built for High-Stakes Operational Environments</h3>
-<p><strong>Enterprise and GTM</strong><br>Antarious replaces fragmented go-to-market infrastructure with a single AI-native platform. From strategy to closed deal — all connected, all automated, all accountable.<br><span class="disabled-link">Learn more about Antarious for Business →</span></p>
-<p><strong>Government</strong><br>Antarious gives government departments a connected intelligence layer that operates across siloed systems, automates high-volume administrative functions, and surfaces the intelligence that policy decisions require.<br><span class="disabled-link">Learn more about Antarious for Government →</span></p>
-<p><strong>NGO and Development</strong><br>Antarious gives development organisations the operational infrastructure to deliver more programme impact with fewer administrative resources — without compromising the human accountability that donors, regulators, and communities require.<br><span class="disabled-link">Learn more about Antarious for NGO →</span></p>
+<p><strong>Enterprise and GTM</strong><br>Antarious replaces fragmented go-to-market infrastructure with a single AI-native platform. From strategy to closed deal — all connected, all automated, all accountable.<br><a class="about-sector-link" href="business.html">Learn more about Antarious for Business →</a></p>
+<p><strong>Government</strong><br>Antarious gives government departments a connected intelligence layer that operates across siloed systems, automates high-volume administrative functions, and surfaces the intelligence that policy decisions require.<br><a class="about-sector-link" href="government.html">Learn more about Antarious for Government →</a></p>
+<p><strong>NGO and Development</strong><br>Antarious gives development organisations the operational infrastructure to deliver more programme impact with fewer administrative resources — without compromising the human accountability that donors, regulators, and communities require.<br><a class="about-sector-link" href="ngo.html">Learn more about Antarious for NGO →</a></p>
 </section>
 <section class="doc-section" id="section-07">
-<h2>Section 07 — Our Commitment to Trust</h2>
+<h2>Our Commitment to Trust</h2>
 <h3>The Four Principles We Are Accountable To</h3>
 <p>Antarious is an AI company operating in environments where trust is not a brand value — it is an operational requirement. Our commitments are specific and verifiable:</p>
 <p><strong>Human approval on every action</strong><br>No external action is taken without explicit human authorisation. This is an architectural constraint, not a configurable option.<br><a href="trust-human-approval.html">Human Approval →</a></p>
@@ -818,16 +883,36 @@ html[data-theme="dark"] .ai-svg-icon {
 <p><strong>Role-based access and authority</strong><br>Every user&#39;s access and approval authority reflects their actual role and responsibility in your organisation — nothing more.<br><a href="trust-role-based-control.html">Role-Based Control →</a></p>
 <p><strong>Security built for sensitive environments</strong><br>Enterprise-grade data protection, infrastructure security, and incident response — designed for environments where a breach carries real consequences.<br><a href="trust-security.html">Security →</a></p>
 </section>
-<section class="doc-section" id="section-08">
-<h2>Section 08 — Contact and Engagement</h2>
+<section class="doc-section about-contact-section" id="section-08">
+<h2>Contact and Engagement</h2>
 <h3>How to Reach Antarious</h3>
-<p><strong>Sales and product enquiries</strong><br>For product walkthroughs, deployment planning, and commercial discussions:<br>the Antarious team</p>
-<p><strong>Partnerships</strong><br>For delivery, integration, and reseller partnership discussions:<br>the partnerships team</p>
-<p><strong>Security and compliance</strong><br>For security documentation requests, due diligence questionnaires, and compliance enquiries:<br>the security team</p>
-<p><strong>Legal and policy</strong><br>For legal, contractual, and policy-related matters:<br>the legal team</p>
-<p><span class="disabled-link">View full contact details →</span></p>
+<p class="about-contact-lead"><strong>General enquiries:</strong> If you are not sure where to direct your message, email <a href="mailto:hello@antarious.com">hello@antarious.com</a> — we route it to the right team.</p>
+<div class="about-contact-grid">
+<a class="about-mail-card about-mail-card--sales" href="mailto:sales@antarious.com?subject=Commercial%20or%20product%20enquiry">
+<span class="about-mail-label">Sales &amp; product</span>
+<span class="about-mail-desc">Walkthroughs, deployment planning, pricing, and technical fit.</span>
+<span class="about-mail-addr">sales@antarious.com</span>
+</a>
+<a class="about-mail-card" href="mailto:partnerships@antarious.com?subject=Partnership%20enquiry">
+<span class="about-mail-label">Partnerships</span>
+<span class="about-mail-desc">Delivery, integration, reseller, and strategic partnerships.</span>
+<span class="about-mail-addr">partnerships@antarious.com</span>
+</a>
+<a class="about-mail-card" href="mailto:security@antarious.com?subject=Security%20or%20compliance%20enquiry">
+<span class="about-mail-label">Security &amp; compliance</span>
+<span class="about-mail-desc">Due diligence packs, questionnaires, certifications, and infosec.</span>
+<span class="about-mail-addr">security@antarious.com</span>
+</a>
+<a class="about-mail-card" href="mailto:legal@antarious.com?subject=Legal%20or%20policy%20enquiry">
+<span class="about-mail-label">Legal &amp; policy</span>
+<span class="about-mail-desc">Contracts, data protection, export, and policy questions.</span>
+<span class="about-mail-addr">legal@antarious.com</span>
+</a>
+</div>
+<p class="about-contact-foot"><a href="company-contact.html">More contact options &amp; locations →</a></p>
 </section>
 
+        </div>
       </div>
       <div class="footer-nav">
         <a href="index.html">Back to Platform</a>

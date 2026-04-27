@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -19,23 +19,107 @@
     .top-link,.top-cta{font-family:"Outfit",sans-serif;font-size:13px;border-radius:12px;padding:9px 16px;transition:all .2s}
     .top-link{color:var(--ink2);border:1px solid rgba(14,165,233,.14);background:linear-gradient(135deg,rgba(14,165,233,.08),rgba(255,255,255,.02))}
     .top-cta{color:#fff;background:linear-gradient(135deg,var(--teal),var(--teal2));border:1px solid transparent;box-shadow:0 8px 22px rgba(14,165,233,.18)}
-    .wrap{max-width:1120px;margin:0 auto;padding:40px 24px 72px}
-    .hero{padding:28px 0 26px}
+    .wrap{max-width:1180px;margin:0 auto;padding:40px clamp(20px,4vw,40px) 72px}
+    .hero{padding:28px 0 20px}
     .eyebrow{display:inline-flex;align-items:center;gap:8px;font-family:"DM Mono",monospace;font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--teal2);margin-bottom:16px}
     .eyebrow::before{content:"";width:16px;height:1.5px;background:var(--teal2)}
     h1{font-family:"Outfit",sans-serif;font-size:clamp(34px,5vw,62px);line-height:.98;letter-spacing:-2px;margin:0 0 16px}
     .tagline{font-family:"Outfit",sans-serif;font-size:clamp(18px,2.1vw,28px);font-weight:700;line-height:1.28;color:var(--ink2);max-width:860px;margin:0 0 14px}
     .support{max-width:840px;color:var(--ink3);font-size:16px}
-    .doc{display:grid;gap:18px}
-    .doc-section{background:var(--card);border:1px solid var(--line);border-radius:28px;padding:28px;box-shadow:0 18px 46px rgba(15,23,42,.05)}
-    .doc-section h2{font-family:"Outfit",sans-serif;font-size:22px;line-height:1.1;letter-spacing:-.6px;margin:0 0 18px}
-    .doc-section h3{font-family:"Outfit",sans-serif;font-size:17px;line-height:1.25;letter-spacing:-.4px;margin:20px 0 10px;color:var(--ink)}
-    .doc-section p{margin:0 0 14px;color:var(--ink2);font-size:15px}
-    .doc-section ul{margin:0 0 10px;padding-left:20px;color:var(--ink2)}
+    .hero-highlights{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:20px}
+    .hero-highlight{background:#fff;border:1px solid var(--line);border-radius:16px;padding:14px 16px;box-shadow:0 10px 24px rgba(15,23,42,.04)}
+    .hero-highlight .k{display:block;font-family:"DM Mono",monospace;font-size:11px;letter-spacing:1.2px;color:var(--teal2);text-transform:uppercase;margin-bottom:5px}
+    .hero-highlight .v{font-family:"Outfit",sans-serif;font-size:16px;font-weight:700;color:var(--ink);line-height:1.3}
+    .content-grid{display:grid;grid-template-columns:260px minmax(0,1fr);gap:clamp(20px,3vw,36px);align-items:start}
+    .section-nav{position:sticky;top:86px;background:#fff;border:1px solid var(--line);border-radius:20px;padding:14px;box-shadow:0 14px 30px rgba(15,23,42,.06)}
+    .section-nav-title{font-family:"DM Mono",monospace;font-size:10px;letter-spacing:1.4px;text-transform:uppercase;color:var(--ink3);margin:0 0 10px}
+    .section-nav a{display:block;padding:8px 10px;border-radius:10px;color:var(--ink2);font-size:13px;font-weight:600;line-height:1.35}
+    .section-nav a:hover{background:rgba(14,165,233,.1);color:var(--teal2)}
+    .section-nav a.is-active{background:linear-gradient(135deg,rgba(14,165,233,.16),rgba(56,189,248,.08));color:var(--teal2)}
+    .doc{display:grid;gap:clamp(28px,4vw,48px);min-width:0}
+    @media (min-width:981px){
+      .content-grid .doc{padding-left:16px}
+    }
+    .doc-section{
+      position:relative;
+      background:var(--card);
+      border:1px solid var(--line);
+      border-radius:28px;
+      padding:36px clamp(26px,4vw,56px) 40px;
+      box-shadow:0 18px 46px rgba(15,23,42,.05);
+      scroll-margin-top:94px;
+      overflow:hidden;
+    }
+    .doc-section::before{
+      content:"";
+      position:absolute;
+      top:0;
+      left:0;
+      right:0;
+      height:3px;
+      background:linear-gradient(90deg,var(--teal2),rgba(56,189,248,.5));
+      opacity:.95;
+    }
+    .section-heading{
+      display:flex;
+      align-items:flex-start;
+      justify-content:space-between;
+      gap:12px;
+      margin:0 auto 22px;
+      max-width:72ch;
+      padding-bottom:14px;
+      border-bottom:1px dashed rgba(15,23,42,.11);
+    }
+    .section-heading h2{
+      font-family:"Outfit",sans-serif;
+      font-size:22px;
+      line-height:1.15;
+      letter-spacing:-.6px;
+      margin:0;
+      flex:1;
+      min-width:0;
+    }
+    .section-copy-btn{
+      flex-shrink:0;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      width:38px;height:38px;
+      padding:0;
+      border:1px solid var(--line);
+      border-radius:12px;
+      background:#fff;
+      color:var(--ink3);
+      cursor:pointer;
+      transition:color .18s,border-color .18s,background .18s;
+    }
+    .section-copy-btn:hover{color:var(--teal2);border-color:rgba(14,165,233,.35);background:rgba(14,165,233,.06)}
+    .section-copy-btn:focus-visible{outline:2px solid var(--teal2);outline-offset:2px}
+    .section-copy-btn svg{width:18px;height:18px;display:block}
+    .section-copy-btn.is-copied{color:#059669;border-color:rgba(5,150,105,.35);background:rgba(5,150,105,.08)}
+    .doc-section .section-heading + h3{margin-top:12px}
+    .doc-section h3{
+      font-family:"Outfit",sans-serif;font-size:17px;line-height:1.25;letter-spacing:-.4px;
+      margin:22px auto 12px;color:var(--ink);
+      max-width:72ch;padding-left:12px;border-left:3px solid rgba(14,165,233,.35);
+    }
+    .doc-section p{
+      margin:0 auto 16px;color:var(--ink2);font-size:15px;line-height:1.82;
+      max-width:72ch;
+    }
+    .doc-section > p:first-of-type{font-size:16px;color:#27364A}
+    .doc-section ul{margin:0 auto 14px;max-width:72ch;padding-left:28px;color:var(--ink2)}
     .doc-section li{margin:0 0 9px}
     .doc-section strong{color:var(--ink)}
-    .callout-line{font-family:"Outfit",sans-serif;font-weight:700;color:var(--teal2)!important}
-    .search-mock{margin:0 0 16px;padding:14px 16px;border-radius:16px;border:1px solid rgba(14,165,233,.18);background:linear-gradient(135deg,rgba(14,165,233,.08),rgba(255,255,255,.92));color:var(--ink3)}
+    .table-wrap{overflow-x:auto;margin:8px auto 22px;padding:4px 0;width:100%;max-width:min(100%,92rem)}
+    .trust-table{width:100%;border-collapse:separate;border-spacing:0;font-size:14px;border:1px solid var(--line);border-radius:14px;overflow:hidden;background:#fff}
+    .trust-table thead th{background:linear-gradient(180deg,#F8FBFF,#F1F8FF);color:var(--ink);font-family:"Outfit",sans-serif;font-size:13px;letter-spacing:.1px}
+    .trust-table th,.trust-table td{padding:11px 12px;border-bottom:1px solid var(--line);vertical-align:top;text-align:left;border-left:none !important;border-right:none !important}
+    .trust-table td,.trust-table th{border-color:var(--line) !important}
+    .trust-table tbody tr:last-child td{border-bottom:none}
+    .trust-table tbody tr:nth-child(odd){background:rgba(14,165,233,.03)}
+    .callout-line{font-family:"Outfit",sans-serif;font-weight:700;color:var(--teal2)!important;max-width:72ch;margin-left:auto;margin-right:auto}
+    .search-mock{margin:0 auto 18px;max-width:72ch;padding:16px 18px;border-radius:16px;border:1px solid rgba(14,165,233,.18);background:linear-gradient(135deg,rgba(14,165,233,.08),rgba(255,255,255,.92));color:var(--ink3)}
     .disabled-link{color:var(--teal2);font-weight:600}
     .footer-nav{margin-top:34px;display:flex;gap:12px;flex-wrap:wrap}
     .footer-nav a{font-family:"Outfit",sans-serif;font-size:13px;font-weight:700;border-radius:999px;padding:9px 14px;border:1px solid var(--line);background:#fff;color:var(--ink2)}
@@ -44,6 +128,53 @@
       .wrap{padding:28px 18px 54px}
       .doc-section{padding:22px}
       .top-actions{width:100%}
+    }
+    @media(max-width:980px){
+      .content-grid{grid-template-columns:1fr}
+      .section-nav{position:static}
+    }
+    @media(max-width:720px){
+      .hero-highlights{grid-template-columns:1fr}
+      .trust-table,
+      .trust-table thead,
+      .trust-table tbody,
+      .trust-table tr,
+      .trust-table th,
+      .trust-table td{display:block;width:100%}
+      .trust-table{border:none;background:transparent}
+      .trust-table thead{display:none}
+      .trust-table tbody tr{background:#fff;border:1px solid var(--line);border-radius:14px;padding:10px 12px;margin:0 0 10px;box-shadow:0 8px 24px rgba(15,23,42,.05)}
+      .trust-table td{border:none;padding:6px 0}
+      .trust-table td + td{border-top:1px dashed rgba(15,23,42,.08);margin-top:6px;padding-top:10px}
+      .trust-table td::before{
+        content:attr(data-label);
+        display:block;
+        font-family:"DM Mono",monospace;
+        font-size:10px;
+        letter-spacing:1.2px;
+        text-transform:uppercase;
+        color:var(--ink3);
+        margin-bottom:4px;
+      }
+    }
+    @media print{
+      body{background:#fff !important;color:#000 !important}
+      .topbar,.section-nav,.footer-nav{display:none !important}
+      .wrap{max-width:100%;padding:0}
+      .content-grid{display:block}
+      .hero{padding:0 0 14px}
+      .hero-highlights{display:none}
+      .doc-section{
+        page-break-inside:avoid;
+        break-inside:avoid;
+        box-shadow:none;
+        border:1px solid #d9d9d9;
+        border-radius:8px;
+        margin-bottom:14px;
+      }
+      .doc-section::before{display:none}
+      .section-copy-btn{display:none!important}
+      a{color:#000;text-decoration:none}
     }
   </style>
 <style id="antarious-design-system-overrides">
@@ -756,10 +887,43 @@ html[data-theme="dark"] .ai-svg-icon {
         <h1>Human Approval</h1>
         <p class="tagline">Every action Freya takes requires a designated human to authorise it. Not as a safeguard. As a structural requirement.</p>
         <p class="support">Antarious AI is built on a single non-negotiable principle: artificial intelligence executes. Humans decide. No external action — no communication sent, no workflow triggered, no document published, no data submitted — is initiated without explicit sign-off from an authorised person in your organisation.</p>
+        <div class="hero-highlights">
+          <div class="hero-highlight">
+            <span class="k">Execution rule</span>
+            <span class="v">Approve before execute on all external actions</span>
+          </div>
+          <div class="hero-highlight">
+            <span class="k">Decision ownership</span>
+            <span class="v">Named human approver remains accountable</span>
+          </div>
+          <div class="hero-highlight">
+            <span class="k">Governance evidence</span>
+            <span class="v">Permanent audit record for every approval event</span>
+          </div>
+        </div>
       </header>
+      <div class="content-grid">
+        <aside class="section-nav">
+          <p class="section-nav-title">On this page</p>
+          <a class="section-link" href="#section-01">Section 01 — The Principle</a>
+          <a class="section-link" href="#section-02">Section 02 — How It Works</a>
+          <a class="section-link" href="#section-03">Section 03 — Scope of Approval</a>
+          <a class="section-link" href="#section-04">Section 04 — Workflow Configuration</a>
+          <a class="section-link" href="#section-05">Section 05 — Approval Interface</a>
+          <a class="section-link" href="#section-06">Section 06 — Without Approval</a>
+          <a class="section-link" href="#section-07">Section 07 — Accountability Records</a>
+          <a class="section-link" href="#section-08">Section 08 — Compliance Mapping</a>
+          <a class="section-link" href="#section-09">Section 09 — FAQ</a>
+          <a class="section-link" href="#section-10">Section 10 — Related Trust Pages</a>
+        </aside>
       <div class="doc">
 <section class="doc-section" id="section-01">
+<div class="section-heading">
 <h2>Section 01 — The Principle</h2>
+<button type="button" class="section-copy-btn" aria-label="Copy link to this section" title="Copy section link">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
+</button>
+</div>
 <h3>Why Human Approval Is Structural, Not Optional</h3>
 <p>Most AI systems describe human oversight as a feature. In Antarious, it is an architectural constraint — baked into every agent, every workflow, and every output that Freya produces.</p>
 <p>Freya is designed to do two things exceptionally well: prepare, and present. She monitors your operations, synthesises your data, drafts your documents, and surfaces your decisions — with full context, cited sources, and a clear recommendation. But she does not act on any of it until a designated human says so.</p>
@@ -769,7 +933,12 @@ html[data-theme="dark"] .ai-svg-icon {
 <p>3. <strong>Trust requires verifiability.</strong> Stakeholders — donors, regulators, ministers, boards, clients — need to know that a human was responsible for every significant action. The approval record is that proof.</p>
 </section>
 <section class="doc-section" id="section-02">
+<div class="section-heading">
 <h2>Section 02 — How It Works</h2>
+<button type="button" class="section-copy-btn" aria-label="Copy link to this section" title="Copy section link">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
+</button>
+</div>
 <h3>The Approval Architecture</h3>
 <p>Every workflow in Antarious is built around an <strong>Approve Before Execute</strong> model. Freya completes her preparation — analysis, drafting, enrichment, synthesis — and then halts. Execution does not resume until an authorised approver acts.</p>
 <h3>The Four-Stage Approval Flow</h3>
@@ -797,10 +966,15 @@ If approved, Freya executes. The approval decision, approver identity,
 timestamp, and any edits are permanently recorded in the audit trail.</pre>
 </section>
 <section class="doc-section" id="section-03">
+<div class="section-heading">
 <h2>Section 03 — Scope of Approval Requirements</h2>
+<button type="button" class="section-copy-btn" aria-label="Copy link to this section" title="Copy section link">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
+</button>
+</div>
 <h3>What Requires Human Approval</h3>
 <p>The following categories of action require explicit human authorisation before Freya proceeds. This list reflects defaults; organisations may expand approval requirements through configuration.</p>
-<div style="overflow-x:auto"><table style="width:100%;border-collapse:collapse;font-size:14px">
+<div class="table-wrap"><table class="trust-table">
 <thead><tr>
 <th style="text-align:left;padding:10px;border:1px solid rgba(15,23,42,.12);background:#F8FBFF">Action Category</th>
 <th style="text-align:left;padding:10px;border:1px solid rgba(15,23,42,.12);background:#F8FBFF">Examples</th>
@@ -860,7 +1034,12 @@ timestamp, and any edits are permanently recorded in the audit trail.</pre>
 </ul>
 </section>
 <section class="doc-section" id="section-04">
+<div class="section-heading">
 <h2>Section 04 — Configuring Approval Workflows</h2>
+<button type="button" class="section-copy-btn" aria-label="Copy link to this section" title="Copy section link">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
+</button>
+</div>
 <h3>Approval Is Configurable to Your Governance Structure</h3>
 <p>Antarious does not impose a single approval model. Every deployment is configured to reflect the authority structures, escalation paths, and governance requirements of your organisation.</p>
 <h3>Configuration Options</h3>
@@ -872,7 +1051,12 @@ timestamp, and any edits are permanently recorded in the audit trail.</pre>
 <p><strong>Approval thresholds</strong><br>Certain actions may require escalation based on scale. For example: campaign spends below &#163;5,000 require team lead approval; above &#163;5,000 require director approval. Thresholds are configurable.</p>
 </section>
 <section class="doc-section" id="section-05">
+<div class="section-heading">
 <h2>Section 05 — The Approval Interface</h2>
+<button type="button" class="section-copy-btn" aria-label="Copy link to this section" title="Copy section link">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
+</button>
+</div>
 <h3>How Approvers Experience the Review Process</h3>
 <p>Approvals are delivered to designated approvers through their configured channels — this may include the Antarious platform, email notification, or integrated communication tools such as Slack or Microsoft Teams.</p>
 <p>Each approval request contains:</p>
@@ -884,7 +1068,12 @@ timestamp, and any edits are permanently recorded in the audit trail.</pre>
 <p><strong>6. Deadline Indicator</strong><br>Where the action is time-sensitive, the approver is shown the window within which a decision is needed and what will happen if no decision is made (default: action is held, not auto-executed).</p>
 </section>
 <section class="doc-section" id="section-06">
+<div class="section-heading">
 <h2>Section 06 — What Happens Without Approval</h2>
+<button type="button" class="section-copy-btn" aria-label="Copy link to this section" title="Copy section link">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
+</button>
+</div>
 <h3>Non-Approval Handling</h3>
 <p>Antarious is designed to hold, not auto-execute, in the absence of a human decision.</p>
 <ul>
@@ -896,7 +1085,12 @@ timestamp, and any edits are permanently recorded in the audit trail.</pre>
 <p class="callout-line"><strong>Under no circumstances does Freya self-approve an action or proceed on the assumption of approval.</strong></p>
 </section>
 <section class="doc-section" id="section-07">
+<div class="section-heading">
 <h2>Section 07 — Accountability Records</h2>
+<button type="button" class="section-copy-btn" aria-label="Copy link to this section" title="Copy section link">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
+</button>
+</div>
 <h3>Every Approval Is Permanently Recorded</h3>
 <p>The approval record for every action is stored permanently in the audit trail and contains:</p>
 <ul>
@@ -910,10 +1104,15 @@ timestamp, and any edits are permanently recorded in the audit trail.</pre>
 <p>This record cannot be altered or deleted after the fact. It is available for internal review, external audit, regulatory inspection, or legal disclosure at any time.</p>
 </section>
 <section class="doc-section" id="section-08">
+<div class="section-heading">
 <h2>Section 08 — Compliance &amp; Regulatory Relevance</h2>
+<button type="button" class="section-copy-btn" aria-label="Copy link to this section" title="Copy section link">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
+</button>
+</div>
 <h3>Human Approval as a Compliance Mechanism</h3>
 <p>For organisations operating in regulated environments, the Antarious human approval architecture provides direct support for compliance obligations across multiple frameworks.</p>
-<div style="overflow-x:auto"><table style="width:100%;border-collapse:collapse;font-size:14px">
+<div class="table-wrap"><table class="trust-table">
 <thead><tr>
 <th style="text-align:left;padding:10px;border:1px solid rgba(15,23,42,.12);background:#F8FBFF">Regulatory / Framework Context</th>
 <th style="text-align:left;padding:10px;border:1px solid rgba(15,23,42,.12);background:#F8FBFF">How Human Approval Supports Compliance</th>
@@ -947,7 +1146,12 @@ timestamp, and any edits are permanently recorded in the audit trail.</pre>
 <p class="search-mock" style="margin-top:0">**Note:** Antarious does not provide legal advice. Organisations should confirm compliance mapping with their own legal and compliance counsel. The above reflects how the human approval architecture is designed to support — not substitute for — compliance obligations.</p>
 </section>
 <section class="doc-section" id="section-09">
+<div class="section-heading">
 <h2>Section 09 — Frequently Asked Questions</h2>
+<button type="button" class="section-copy-btn" aria-label="Copy link to this section" title="Copy section link">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
+</button>
+</div>
 <p><strong>Q: Can approval be turned off for certain workflows to increase speed?</strong><br>A: Approval requirements for external actions cannot be disabled — this is a platform-level constraint. However, approval workflows can be streamlined: single-click approval for lower-risk actions, pre-approved template libraries, and delegated authority all reduce friction without removing the human decision point.</p>
 <p><strong>Q: What if our organisation needs approvals from multiple people in different locations or time zones?</strong><br>A: Antarious supports asynchronous approval workflows. Approvers receive notifications through configured channels and can act from any location. Parallel and sequential workflows can be combined to accommodate distributed teams.</p>
 <p><strong>Q: How long does an approval typically take?</strong><br>A: Freya prepares review packages that are designed to be actioned in under five minutes for routine approvals. The review package surfaces everything the approver needs to decide — no additional research is required from the approver.</p>
@@ -956,7 +1160,12 @@ timestamp, and any edits are permanently recorded in the audit trail.</pre>
 <p><strong>Q: What happens if the approver approves something incorrectly?</strong><br>A: The audit trail records the approval with full context. Freya cannot retroactively undo an approved action, but the record of what was approved, by whom, and on what basis is permanently available. Post-approval rollback procedures depend on the action type and are configured during deployment.</p>
 </section>
 <section class="doc-section" id="section-10">
+<div class="section-heading">
 <h2>Section 10 — Related Trust Pages</h2>
+<button type="button" class="section-copy-btn" aria-label="Copy link to this section" title="Copy section link">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
+</button>
+</div>
 <ul>
 <li><a href="trust-audit-trail.html">Audit Trail →</a> — How every approval and action is permanently logged</li>
 <li><a href="trust-role-based-control.html">Role-Based Control →</a> — How approval authority is assigned and bounded by role</li>
@@ -965,6 +1174,7 @@ timestamp, and any edits are permanently recorded in the audit trail.</pre>
 </section>
 
       </div>
+      </div>
       <div class="footer-nav">
         <a href="index.html">Back to Platform</a>
         <a href="freya.html">Explore Freya</a>
@@ -972,5 +1182,104 @@ timestamp, and any edits are permanently recorded in the audit trail.</pre>
       </div>
     </main>
   </div>
+  <script>
+    (function () {
+      var navLinks = Array.from(document.querySelectorAll('.section-link'));
+      var sections = Array.from(document.querySelectorAll('.doc-section[id]'));
+      var tables = Array.from(document.querySelectorAll('.trust-table'));
+
+      tables.forEach(function (table) {
+        var headers = Array.from(table.querySelectorAll('thead th')).map(function (th) {
+          return (th.textContent || '').trim();
+        });
+        if (!headers.length) return;
+        Array.from(table.querySelectorAll('tbody tr')).forEach(function (row) {
+          Array.from(row.children).forEach(function (cell, index) {
+            if (!cell.getAttribute('data-label')) {
+              cell.setAttribute('data-label', headers[index] || 'Detail');
+            }
+          });
+        });
+      });
+
+      document.addEventListener('click', function (e) {
+        var btn = e.target.closest('.section-copy-btn');
+        if (!btn) return;
+        var section = btn.closest('.doc-section');
+        var id = section && section.id;
+        if (!id) return;
+        e.preventDefault();
+        var url = window.location.origin + window.location.pathname + window.location.search + '#' + id;
+        var resetTimer;
+        var reset = function () {
+          btn.classList.remove('is-copied');
+          btn.setAttribute('aria-label', 'Copy link to this section');
+          btn.removeAttribute('data-copied');
+        };
+        var done = function () {
+          if (resetTimer) window.clearTimeout(resetTimer);
+          btn.classList.add('is-copied');
+          btn.setAttribute('aria-label', 'Link copied');
+          btn.setAttribute('data-copied', 'true');
+          resetTimer = window.setTimeout(reset, 2200);
+        };
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText(url).then(done).catch(function () {
+            var ta = document.createElement('textarea');
+            ta.value = url;
+            ta.style.position = 'fixed';
+            ta.style.left = '-9999px';
+            document.body.appendChild(ta);
+            ta.select();
+            try {
+              document.execCommand('copy');
+              done();
+            } catch (err) {}
+            document.body.removeChild(ta);
+          });
+        } else {
+          var ta2 = document.createElement('textarea');
+          ta2.value = url;
+          ta2.style.position = 'fixed';
+          ta2.style.left = '-9999px';
+          document.body.appendChild(ta2);
+          ta2.select();
+          try {
+            document.execCommand('copy');
+            done();
+          } catch (err2) {}
+          document.body.removeChild(ta2);
+        }
+      });
+
+      if (!('IntersectionObserver' in window) || !sections.length || !navLinks.length) {
+        return;
+      }
+
+      var linkById = {};
+      navLinks.forEach(function (link) {
+        var id = (link.getAttribute('href') || '').replace('#', '');
+        if (id) linkById[id] = link;
+      });
+
+      var setActive = function (id) {
+        navLinks.forEach(function (link) { link.classList.remove('is-active'); });
+        if (linkById[id]) {
+          linkById[id].classList.add('is-active');
+        }
+      };
+
+      var observer = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            setActive(entry.target.id);
+          }
+        });
+      }, { rootMargin: '-20% 0px -60% 0px', threshold: 0.1 });
+
+      sections.forEach(function (section) { observer.observe(section); });
+      setActive(sections[0].id);
+    })();
+  </script>
 </body>
 </html>

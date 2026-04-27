@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -19,23 +19,50 @@
     .top-link,.top-cta{font-family:"Outfit",sans-serif;font-size:13px;border-radius:12px;padding:9px 16px;transition:all .2s}
     .top-link{color:var(--ink2);border:1px solid rgba(14,165,233,.14);background:linear-gradient(135deg,rgba(14,165,233,.08),rgba(255,255,255,.02))}
     .top-cta{color:#fff;background:linear-gradient(135deg,var(--teal),var(--teal2));border:1px solid transparent;box-shadow:0 8px 22px rgba(14,165,233,.18)}
-    .wrap{max-width:1120px;margin:0 auto;padding:40px 24px 72px}
-    .hero{padding:28px 0 26px}
+    .wrap{max-width:1180px;margin:0 auto;padding:40px clamp(20px,4vw,40px) 72px}
+    .hero{padding:28px 0 20px}
     .eyebrow{display:inline-flex;align-items:center;gap:8px;font-family:"DM Mono",monospace;font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--teal2);margin-bottom:16px}
     .eyebrow::before{content:"";width:16px;height:1.5px;background:var(--teal2)}
     h1{font-family:"Outfit",sans-serif;font-size:clamp(34px,5vw,62px);line-height:.98;letter-spacing:-2px;margin:0 0 16px}
     .tagline{font-family:"Outfit",sans-serif;font-size:clamp(18px,2.1vw,28px);font-weight:700;line-height:1.28;color:var(--ink2);max-width:860px;margin:0 0 14px}
     .support{max-width:840px;color:var(--ink3);font-size:16px}
-    .doc{display:grid;gap:18px}
-    .doc-section{background:var(--card);border:1px solid var(--line);border-radius:28px;padding:28px;box-shadow:0 18px 46px rgba(15,23,42,.05)}
-    .doc-section h2{font-family:"Outfit",sans-serif;font-size:22px;line-height:1.1;letter-spacing:-.6px;margin:0 0 18px}
-    .doc-section h3{font-family:"Outfit",sans-serif;font-size:17px;line-height:1.25;letter-spacing:-.4px;margin:20px 0 10px;color:var(--ink)}
-    .doc-section p{margin:0 0 14px;color:var(--ink2);font-size:15px}
-    .doc-section ul{margin:0 0 10px;padding-left:20px;color:var(--ink2)}
+    .hero-highlights{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:20px}
+    .hero-highlight{background:#fff;border:1px solid var(--line);border-radius:16px;padding:14px 16px;box-shadow:0 10px 24px rgba(15,23,42,.04)}
+    .hero-highlight .k{display:block;font-family:"DM Mono",monospace;font-size:11px;letter-spacing:1.2px;color:var(--teal2);text-transform:uppercase;margin-bottom:5px}
+    .hero-highlight .v{font-family:"Outfit",sans-serif;font-size:16px;font-weight:700;color:var(--ink);line-height:1.3}
+    .content-grid{display:grid;grid-template-columns:260px minmax(0,1fr);gap:clamp(20px,3vw,36px);align-items:start}
+    .section-nav{position:sticky;top:86px;background:#fff;border:1px solid var(--line);border-radius:20px;padding:14px;box-shadow:0 14px 30px rgba(15,23,42,.06)}
+    .section-nav-title{font-family:"DM Mono",monospace;font-size:10px;letter-spacing:1.4px;text-transform:uppercase;color:var(--ink3);margin:0 0 10px}
+    .section-nav a{display:block;padding:8px 10px;border-radius:10px;color:var(--ink2);font-size:13px;font-weight:600;line-height:1.35}
+    .section-nav a:hover{background:rgba(14,165,233,.1);color:var(--teal2)}
+    .section-nav a.is-active{background:linear-gradient(135deg,rgba(14,165,233,.16),rgba(56,189,248,.08));color:var(--teal2)}
+    .doc{display:grid;gap:clamp(28px,4vw,48px);min-width:0}
+    @media (min-width:981px){.content-grid .doc{padding-left:16px}}
+    .doc-section{position:relative;background:var(--card);border:1px solid var(--line);border-radius:28px;padding:36px clamp(26px,4vw,56px) 40px;box-shadow:0 18px 46px rgba(15,23,42,.05);scroll-margin-top:94px;overflow:hidden}
+    .doc-section::before{content:"";position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--teal2),rgba(56,189,248,.5));opacity:.95}
+    .section-heading{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;margin:0 auto 22px;max-width:72ch;padding-bottom:14px;border-bottom:1px dashed rgba(15,23,42,.11)}
+    .section-heading h2{font-family:"Outfit",sans-serif;font-size:22px;line-height:1.15;letter-spacing:-.6px;margin:0;flex:1;min-width:0}
+    .section-copy-btn{flex-shrink:0;display:inline-flex;align-items:center;justify-content:center;width:38px;height:38px;padding:0;border:1px solid var(--line);border-radius:12px;background:#fff;color:var(--ink3);cursor:pointer;transition:color .18s,border-color .18s,background .18s}
+    .section-copy-btn:hover{color:var(--teal2);border-color:rgba(14,165,233,.35);background:rgba(14,165,233,.06)}
+    .section-copy-btn:focus-visible{outline:2px solid var(--teal2);outline-offset:2px}
+    .section-copy-btn svg{width:18px;height:18px;display:block}
+    .section-copy-btn.is-copied{color:#059669;border-color:rgba(5,150,105,.35);background:rgba(5,150,105,.08)}
+    .doc-section .section-heading + h3{margin-top:12px}
+    .doc-section h3{font-family:"Outfit",sans-serif;font-size:17px;line-height:1.25;letter-spacing:-.4px;margin:22px auto 12px;color:var(--ink);max-width:72ch;padding-left:12px;border-left:3px solid rgba(14,165,233,.35)}
+    .doc-section p{margin:0 auto 16px;color:var(--ink2);font-size:15px;line-height:1.82;max-width:72ch}
+    .doc-section > p:first-of-type{font-size:16px;color:#27364A}
+    .doc-section ul{margin:0 auto 14px;max-width:72ch;padding-left:28px;color:var(--ink2)}
     .doc-section li{margin:0 0 9px}
     .doc-section strong{color:var(--ink)}
-    .callout-line{font-family:"Outfit",sans-serif;font-weight:700;color:var(--teal2)!important}
-    .search-mock{margin:0 0 16px;padding:14px 16px;border-radius:16px;border:1px solid rgba(14,165,233,.18);background:linear-gradient(135deg,rgba(14,165,233,.08),rgba(255,255,255,.92));color:var(--ink3)}
+    .table-wrap{overflow-x:auto;margin:8px auto 22px;padding:4px 0;width:100%;max-width:min(100%,92rem)}
+    .trust-table{width:100%;border-collapse:separate;border-spacing:0;font-size:14px;border:1px solid var(--line);border-radius:14px;overflow:hidden;background:#fff}
+    .trust-table thead th{background:linear-gradient(180deg,#F8FBFF,#F1F8FF);color:var(--ink);font-family:"Outfit",sans-serif;font-size:13px;letter-spacing:.1px}
+    .trust-table th,.trust-table td{padding:11px 12px;border-bottom:1px solid var(--line);vertical-align:top;text-align:left;border-left:none !important;border-right:none !important}
+    .trust-table td,.trust-table th{border-color:var(--line) !important}
+    .trust-table tbody tr:last-child td{border-bottom:none}
+    .trust-table tbody tr:nth-child(odd){background:rgba(14,165,233,.03)}
+    .callout-line{font-family:"Outfit",sans-serif;font-weight:700;color:var(--teal2)!important;max-width:72ch;margin-left:auto;margin-right:auto}
+    .search-mock{margin:0 auto 18px;max-width:72ch;padding:16px 18px;border-radius:16px;border:1px solid rgba(14,165,233,.18);background:linear-gradient(135deg,rgba(14,165,233,.08),rgba(255,255,255,.92));color:var(--ink3)}
     .disabled-link{color:var(--teal2);font-weight:600}
     .footer-nav{margin-top:34px;display:flex;gap:12px;flex-wrap:wrap}
     .footer-nav a{font-family:"Outfit",sans-serif;font-size:13px;font-weight:700;border-radius:999px;padding:9px 14px;border:1px solid var(--line);background:#fff;color:var(--ink2)}
@@ -44,6 +71,29 @@
       .wrap{padding:28px 18px 54px}
       .doc-section{padding:22px}
       .top-actions{width:100%}
+    }
+    @media(max-width:980px){.content-grid{grid-template-columns:1fr}.section-nav{position:static}}
+    @media(max-width:720px){
+      .hero-highlights{grid-template-columns:1fr}
+      .trust-table,.trust-table thead,.trust-table tbody,.trust-table tr,.trust-table th,.trust-table td{display:block;width:100%}
+      .trust-table{border:none;background:transparent}
+      .trust-table thead{display:none}
+      .trust-table tbody tr{background:#fff;border:1px solid var(--line);border-radius:14px;padding:10px 12px;margin:0 0 10px;box-shadow:0 8px 24px rgba(15,23,42,.05)}
+      .trust-table td{border:none;padding:6px 0}
+      .trust-table td + td{border-top:1px dashed rgba(15,23,42,.08);margin-top:6px;padding-top:10px}
+      .trust-table td::before{content:attr(data-label);display:block;font-family:"DM Mono",monospace;font-size:10px;letter-spacing:1.2px;text-transform:uppercase;color:var(--ink3);margin-bottom:4px}
+    }
+    @media print{
+      body{background:#fff !important;color:#000 !important}
+      .topbar,.section-nav,.footer-nav{display:none !important}
+      .wrap{max-width:100%;padding:0}
+      .content-grid{display:block}
+      .hero{padding:0 0 14px}
+      .hero-highlights{display:none}
+      .doc-section{page-break-inside:avoid;break-inside:avoid;box-shadow:none;border:1px solid #d9d9d9;border-radius:8px;margin-bottom:14px}
+      .doc-section::before{display:none}
+      .section-copy-btn{display:none!important}
+      a{color:#000;text-decoration:none}
     }
   </style>
 <style id="antarious-design-system-overrides">
@@ -757,9 +807,32 @@ html[data-theme="dark"] .ai-svg-icon {
         <p class="tagline">Every decision Freya makes. Every action a human approves. Every outcome that follows. Recorded permanently, in full, from the first moment of deployment.</p>
         <p class="support">Antarious maintains a complete, immutable, and forensically retrievable record of every operation across your organisation. Not summaries. Not logs. The full chain — what happened, who authorised it, what data informed it, and what the outcome was. For as long as you need it.</p>
       </header>
+        <div class="hero-highlights">
+          <div class="hero-highlight"><span class="k">Evidence chain</span><span class="v">Immutable records from trigger to outcome</span></div>
+          <div class="hero-highlight"><span class="k">Queryable</span><span class="v">Export & audit-ready retrieval</span></div>
+          <div class="hero-highlight"><span class="k">Governance-ready</span><span class="v">Built for regulators & donors</span></div>
+        </div>
+      <div class="content-grid">
+        <aside class="section-nav">
+          <p class="section-nav-title">On this page</p>
+          <a class="section-link" href="#section-01">§01 — Transparency case</a>
+          <a class="section-link" href="#section-02">§02 — What it captures</a>
+          <a class="section-link" href="#section-03">§03 — Immutability</a>
+          <a class="section-link" href="#section-04">§04 — Retrieval & query</a>
+          <a class="section-link" href="#section-05">§05 — Governance uses</a>
+          <a class="section-link" href="#section-06">§06 — Regulated environments</a>
+          <a class="section-link" href="#section-07">§07 — Retention</a>
+          <a class="section-link" href="#section-08">§08 — FAQ</a>
+          <a class="section-link" href="#section-09">§09 — Related pages</a>
+        </aside>
       <div class="doc">
 <section class="doc-section" id="section-01">
+<div class="section-heading">
 <h2>Section 01 — The Case for Radical Transparency</h2>
+<button type="button" class="section-copy-btn" aria-label="Copy link to this section" title="Copy section link">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
+</button>
+</div>
 <h3>Why Audit Trails Are Not Enough — and What Ours Does Differently</h3>
 <p>Most enterprise software keeps logs. Antarious keeps a ledger.</p>
 <p>The difference is intentional. A log records that something happened. A ledger records what happened, why it happened, who authorised it, what context existed at the time, and what followed. One is useful for debugging. The other is useful for governance — and for the kind of accountability that enterprise procurement teams, government audit committees, donor review missions, and regulatory inspectors actually require.</p>
@@ -767,7 +840,12 @@ html[data-theme="dark"] .ai-svg-icon {
 <p>Antarious is built to make that evidence complete, retrievable, and incontestable — at any point, for any action, going back to the beginning.</p>
 </section>
 <section class="doc-section" id="section-02">
+<div class="section-heading">
 <h2>Section 02 — What the Audit Trail Captures</h2>
+<button type="button" class="section-copy-btn" aria-label="Copy link to this section" title="Copy section link">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
+</button>
+</div>
 <h3>A Complete Record, Not a Selective One</h3>
 <p>Every event in the Antarious system generates an audit record. There are no gaps by design, no categories of action that are excluded, and no period of operation that falls outside the record.</p>
 <h3>The Seven Layers of Every Audit Record</h3>
@@ -780,7 +858,12 @@ html[data-theme="dark"] .ai-svg-icon {
 <p><strong>Layer 7 — The Exception Record</strong><br>What didn&#39;t happen, and why? Rejected actions, failed executions, system errors, and unresolved escalations are all recorded with full context. The absence of an action is as important as its presence in a complete governance record.</p>
 </section>
 <section class="doc-section" id="section-03">
+<div class="section-heading">
 <h2>Section 03 — Immutability</h2>
+<button type="button" class="section-copy-btn" aria-label="Copy link to this section" title="Copy section link">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
+</button>
+</div>
 <h3>Why the Record Cannot Be Changed</h3>
 <p>The Antarious audit trail is write-once by architecture. Once an event is recorded, it cannot be edited, deleted, or overwritten — by any user, at any permission level, including system administrators and Antarious personnel.</p>
 <p>This is not a policy. It is a technical constraint.</p>
@@ -794,7 +877,12 @@ html[data-theme="dark"] .ai-svg-icon {
 <p>The practical consequence is simple: if an audit record exists in Antarious, it reflects exactly what happened. It cannot have been sanitised, corrected, or adjusted after the fact. For regulatory inspectors, donor auditors, and legal proceedings, this matters enormously.</p>
 </section>
 <section class="doc-section" id="section-04">
+<div class="section-heading">
 <h2>Section 04 — Retrieval and Query</h2>
+<button type="button" class="section-copy-btn" aria-label="Copy link to this section" title="Copy section link">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
+</button>
+</div>
 <h3>Finding Exactly What You Need, When You Need It</h3>
 <p>An audit trail that cannot be interrogated efficiently is a liability, not an asset. Antarious makes the full record searchable, filterable, and exportable across any dimension relevant to governance.</p>
 <h3>Query Capabilities</h3>
@@ -815,7 +903,12 @@ html[data-theme="dark"] .ai-svg-icon {
 </ul>
 </section>
 <section class="doc-section" id="section-05">
+<div class="section-heading">
 <h2>Section 05 — Governance Use Cases</h2>
+<button type="button" class="section-copy-btn" aria-label="Copy link to this section" title="Copy section link">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
+</button>
+</div>
 <h3>How Different Roles Use the Audit Trail</h3>
 <p>The audit trail serves different functions for different people in your organisation. Each of the following is a first-class use case, not an edge case.</p>
 <h3>For Executive Leadership and Ministers</h3>
@@ -834,9 +927,14 @@ html[data-theme="dark"] .ai-svg-icon {
 <p>A self-contained, exportable evidence package for any defined audit scope. Auditors receive exactly the records they request, in the format they require, with the provenance and verification information they need to rely on the record.</p>
 </section>
 <section class="doc-section" id="section-06">
+<div class="section-heading">
 <h2>Section 06 — Audit Trail in Regulated Environments</h2>
+<button type="button" class="section-copy-btn" aria-label="Copy link to this section" title="Copy section link">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
+</button>
+</div>
 <h3>Meeting the Evidence Standards That Matter</h3>
-<div style="overflow-x:auto"><table style="width:100%;border-collapse:collapse;font-size:14px">
+<div class="table-wrap"><table class="trust-table">
 <thead><tr>
 <th style="text-align:left;padding:10px;border:1px solid rgba(15,23,42,.12);background:#F8FBFF">Regulatory / Framework Context</th>
 <th style="text-align:left;padding:10px;border:1px solid rgba(15,23,42,.12);background:#F8FBFF">Audit Trail Capability</th>
@@ -878,7 +976,12 @@ html[data-theme="dark"] .ai-svg-icon {
 <p class="search-mock" style="margin-top:0">**Note:** Compliance mapping should be confirmed with your organisation&#39;s legal and compliance advisors. Antarious provides the evidential infrastructure; compliance determinations remain the responsibility of your organisation.</p>
 </section>
 <section class="doc-section" id="section-07">
+<div class="section-heading">
 <h2>Section 07 — Retention and Data Governance</h2>
+<button type="button" class="section-copy-btn" aria-label="Copy link to this section" title="Copy section link">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
+</button>
+</div>
 <h3>How Long Records Are Kept and Who Controls Them</h3>
 <h3>Default Retention</h3>
 <p>Audit records are retained for a minimum of <strong>seven years</strong> from the date of creation, in line with common regulatory and donor requirements. Retention periods are configurable to meet your organisation&#39;s specific obligations.</p>
@@ -888,7 +991,7 @@ html[data-theme="dark"] .ai-svg-icon {
 <p>Audit records are stored in the jurisdiction specified during deployment. Organisations with data residency requirements — including government entities subject to national data sovereignty rules — can configure storage locations accordingly.</p>
 <h3>Access to Audit Data</h3>
 <p>Access to audit records is governed by role-based permissions configured during deployment. Typical access tiers:</p>
-<div style="overflow-x:auto"><table style="width:100%;border-collapse:collapse;font-size:14px">
+<div class="table-wrap"><table class="trust-table">
 <thead><tr>
 <th style="text-align:left;padding:10px;border:1px solid rgba(15,23,42,.12);background:#F8FBFF">Role</th>
 <th style="text-align:left;padding:10px;border:1px solid rgba(15,23,42,.12);background:#F8FBFF">Access Level</th>
@@ -918,7 +1021,12 @@ html[data-theme="dark"] .ai-svg-icon {
 <p><strong>No user has write or delete access to audit records.</strong> This includes Antarious personnel. If records require correction due to a technical error (which should not occur given the write-once architecture), the correction process requires documented justification and produces a new linked record — the original is never altered.</p>
 </section>
 <section class="doc-section" id="section-08">
+<div class="section-heading">
 <h2>Section 08 — Frequently Asked Questions</h2>
+<button type="button" class="section-copy-btn" aria-label="Copy link to this section" title="Copy section link">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
+</button>
+</div>
 <p><strong>Q: How quickly is an audit record created after an action occurs?</strong><br>A: Audit records are generated in real time — at the moment each event occurs, not in batch processes. There is no gap between an action and its audit record.</p>
 <p><strong>Q: Can our internal audit team access the trail directly, or do they need to go through Antarious?</strong><br>A: Your internal audit team can be granted direct read access to the audit trail through the platform. No Antarious intermediary is required for routine access. For bulk exports or custom audit report formats, Antarious&#39;s support team is available.</p>
 <p><strong>Q: What if an audit record is needed as legal evidence?</strong><br>A: Audit records include cryptographic timestamps and hash verification that support their use as evidence in legal proceedings. We recommend working with your legal counsel to confirm the evidential requirements in your jurisdiction. Antarious can provide technical documentation of the audit architecture for legal proceedings on request.</p>
@@ -927,7 +1035,12 @@ html[data-theme="dark"] .ai-svg-icon {
 <p><strong>Q: Is there an alert if someone tries to access or modify audit records inappropriately?</strong><br>A: Yes. Attempts to access audit records outside configured permissions generate an automated alert to the system administrator. Attempts to modify records are blocked at the architecture level and logged.</p>
 </section>
 <section class="doc-section" id="section-09">
+<div class="section-heading">
 <h2>Section 09 — Related Trust Pages</h2>
+<button type="button" class="section-copy-btn" aria-label="Copy link to this section" title="Copy section link">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
+</button>
+</div>
 <ul>
 <li><a href="trust-human-approval.html">Human Approval →</a> — The approval events that generate audit records</li>
 <li><a href="trust-role-based-control.html">Role-Based Control →</a> — How access to audit data is governed by role</li>
@@ -936,6 +1049,7 @@ html[data-theme="dark"] .ai-svg-icon {
 </section>
 
       </div>
+      </div>
       <div class="footer-nav">
         <a href="index.html">Back to Platform</a>
         <a href="freya.html">Explore Freya</a>
@@ -943,5 +1057,105 @@ html[data-theme="dark"] .ai-svg-icon {
       </div>
     </main>
   </div>
+  <script>
+    (function () {
+      var navLinks = Array.from(document.querySelectorAll('.section-link'));
+      var sections = Array.from(document.querySelectorAll('.doc-section[id]'));
+      var tables = Array.from(document.querySelectorAll('.trust-table'));
+
+      tables.forEach(function (table) {
+        var headers = Array.from(table.querySelectorAll('thead th')).map(function (th) {
+          return (th.textContent || '').trim();
+        });
+        if (!headers.length) return;
+        Array.from(table.querySelectorAll('tbody tr')).forEach(function (row) {
+          Array.from(row.children).forEach(function (cell, index) {
+            if (!cell.getAttribute('data-label')) {
+              cell.setAttribute('data-label', headers[index] || 'Detail');
+            }
+          });
+        });
+      });
+
+      document.addEventListener('click', function (e) {
+        var btn = e.target.closest('.section-copy-btn');
+        if (!btn) return;
+        var section = btn.closest('.doc-section');
+        var id = section && section.id;
+        if (!id) return;
+        e.preventDefault();
+        var url = window.location.origin + window.location.pathname + window.location.search + '#' + id;
+        var resetTimer;
+        var reset = function () {
+          btn.classList.remove('is-copied');
+          btn.setAttribute('aria-label', 'Copy link to this section');
+          btn.removeAttribute('data-copied');
+        };
+        var done = function () {
+          if (resetTimer) window.clearTimeout(resetTimer);
+          btn.classList.add('is-copied');
+          btn.setAttribute('aria-label', 'Link copied');
+          btn.setAttribute('data-copied', 'true');
+          resetTimer = window.setTimeout(reset, 2200);
+        };
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText(url).then(done).catch(function () {
+            var ta = document.createElement('textarea');
+            ta.value = url;
+            ta.style.position = 'fixed';
+            ta.style.left = '-9999px';
+            document.body.appendChild(ta);
+            ta.select();
+            try {
+              document.execCommand('copy');
+              done();
+            } catch (err) {}
+            document.body.removeChild(ta);
+          });
+        } else {
+          var ta2 = document.createElement('textarea');
+          ta2.value = url;
+          ta2.style.position = 'fixed';
+          ta2.style.left = '-9999px';
+          document.body.appendChild(ta2);
+          ta2.select();
+          try {
+            document.execCommand('copy');
+            done();
+          } catch (err2) {}
+          document.body.removeChild(ta2);
+        }
+      });
+
+      if (!('IntersectionObserver' in window) || !sections.length || !navLinks.length) {
+        return;
+      }
+
+      var linkById = {};
+      navLinks.forEach(function (link) {
+        var id = (link.getAttribute('href') || '').replace('#', '');
+        if (id) linkById[id] = link;
+      });
+
+      var setActive = function (id) {
+        navLinks.forEach(function (link) { link.classList.remove('is-active'); });
+        if (linkById[id]) {
+          linkById[id].classList.add('is-active');
+        }
+      };
+
+      var observer = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            setActive(entry.target.id);
+          }
+        });
+      }, { rootMargin: '-20% 0px -60% 0px', threshold: 0.1 });
+
+      sections.forEach(function (section) { observer.observe(section); });
+      setActive(sections[0].id);
+    })();
+  </script>
+
 </body>
 </html>

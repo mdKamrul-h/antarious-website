@@ -22,12 +22,12 @@ const footerLinks = {
   resources: [
     { href: "index.html#workflow", label: "How It Works" },
     { href: "index.html#benefits", label: "Why Antarious" },
-    { href: "mailto:hello@antarious.ai?subject=Request%20Brochure", label: "Request Brochure" }
+    { href: "mailto:sales@antarious.com?subject=Request%20Brochure", label: "Request Brochure" }
   ],
   company: [
-    { href: "mailto:hello@antarious.ai?subject=Request%20a%20Demo", label: "Book a Demo" },
-    { href: "mailto:hello@antarious.ai?subject=Partnership%20Inquiry", label: "Partnerships" },
-    { href: "mailto:legal@antarious.ai?subject=Security%20Request", label: "Security" }
+    { href: "mailto:sales@antarious.com?subject=Request%20a%20Demo", label: "Book a Demo" },
+    { href: "mailto:partnerships@antarious.com?subject=Partnership%20Inquiry", label: "Partnerships" },
+    { href: "mailto:security@antarious.com?subject=Security%20Request", label: "Security" }
   ]
 };
 
@@ -100,7 +100,7 @@ function renderFooter() {
               <p class="section-subtitle">Every deployment is tailored to your workflow, approval model, and operating constraints. Start with one team, one department, or one mission-critical process.</p>
             </div>
             <div class="button-row">
-              <a class="button button-primary" href="mailto:hello@antarious.ai?subject=Request%20a%20Demo">Request a Demo</a>
+              <a class="button button-primary" href="mailto:sales@antarious.com?subject=Request%20a%20Demo">Request a Demo</a>
               <a class="button button-secondary" href="freya.html">Meet Freya</a>
             </div>
           </div>
@@ -133,12 +133,12 @@ function renderFooter() {
         </div>
 
         <div class="footer-bottom">
-          <div>© <span id="year"></span> Antarious. All rights reserved.</div>
+          <div>Copyright © <span id="year"></span> Antarious AI. All rights reserved.</div>
           <div class="footer-bottom-links">
-            <a href="mailto:legal@antarious.ai?subject=Privacy%20Request">Privacy</a>
-            <a href="mailto:legal@antarious.ai?subject=Terms%20Request">Terms</a>
-            <a href="mailto:security@antarious.ai?subject=Security%20Question">Security</a>
-            <a href="mailto:hello@antarious.ai?subject=Partnership%20Inquiry">Contact</a>
+            <a href="mailto:legal@antarious.com?subject=Privacy%20Request">Privacy</a>
+            <a href="mailto:legal@antarious.com?subject=Terms%20Request">Terms</a>
+            <a href="mailto:security@antarious.com?subject=Security%20Question">Security</a>
+            <a href="mailto:hello@antarious.com?subject=General%20enquiry">Contact</a>
           </div>
         </div>
       </div>

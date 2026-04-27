@@ -245,7 +245,8 @@ section{padding:96px 0}
 .iv-pf{height:100%;animation:liveBar 3.5s ease-in-out infinite}
 .iv-body{padding:18px}
 .f-tick{display:flex;align-items:center;gap:8px;padding:7px 11px;border-radius:8px;margin-bottom:11px;border:1px solid}
-.f-tick-orb{width:20px;height:20px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:"Outfit",sans-serif;font-size:9px;font-weight:900;color:#fff;flex-shrink:0;animation:conic 4s linear infinite}
+.f-tick-orb{width:20px;height:20px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;overflow:hidden;animation:conic 4s linear infinite}
+.f-tick-orb>.freya-mark-img{width:14px;height:14px;display:block;object-fit:contain;pointer-events:none}
 .f-tick-txt{display:flex;align-items:center;min-height:30px;font-family:"DM Mono",monospace;font-size:10px;font-weight:700;flex:1}
 .f-tick-dot{width:5px;height:5px;border-radius:50%;background:var(--green);animation:pulse 1.4s ease infinite;flex-shrink:0}
 .iv-metric-grid{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-bottom:10px}
@@ -331,10 +332,8 @@ footer{background:var(--bg2);border-top:1px solid var(--bdr);padding:64px 0 30px
 .footer-link-item{display:flex;flex-direction:column;gap:3px}
 .footer-link-item .footer-lnk{font-weight:600}
 .footer-link-desc{font-size:11px;line-height:1.45;color:var(--ink4);max-width:240px}
-.footer-bottom{display:flex;align-items:center;justify-content:space-between;padding-top:24px;border-top:1px solid var(--bdr);flex-wrap:wrap;gap:12px}
-.footer-copy{font-family:var(--fm);font-size:10px;color:var(--ink4)}
-.footer-badges{display:flex;gap:8px;flex-wrap:wrap}
-.footer-badge{font-family:var(--fm);font-size:8.5px;font-weight:700;letter-spacing:1px;color:var(--ink3);background:#fff;border:1px solid var(--bdr);padding:3px 10px;border-radius:20px}
+.footer-bottom{display:flex;align-items:center;justify-content:center;padding-top:24px;border-top:1px solid var(--bdr);flex-wrap:wrap;gap:12px}
+.footer-copy{font-family:var(--fm);font-size:10px;color:var(--ink4);text-align:center;width:100%}
 
 /* RESPONSIVE */
 @media(max-width:1100px){.hero-inner{grid-template-columns:1fr;max-width:640px;padding:110px 48px 80px}.orb-wrap{width:320px;height:320px;max-width:320px}.o-r1{width:318px;height:318px}.o-r2{width:282px;height:282px}.o-r3{width:246px;height:246px}.o-r4{width:210px;height:210px}.o-core{width:180px;height:180px}.o-letter{font-size:64px}.ind-grid{grid-template-columns:1fr}.footer-top{grid-template-columns:1fr 1fr 1fr}}
@@ -1407,7 +1406,7 @@ html[data-theme="dark"] .ai-svg-icon {
           <div class="iv-bar"><div class="iv-dots"><div class="iv-dot" style="background:#EF4444"></div><div class="iv-dot" style="background:#F59E0B"></div><div class="iv-dot" style="background:#10B981"></div></div><div class="iv-url">antarious.app / gtm-ops</div><div class="iv-live"><span class="iv-ldot"></span>LIVE</div></div>
           <div class="iv-prog"><div class="iv-pf" style="background:linear-gradient(90deg,var(--tl),var(--td))"></div></div>
           <div class="iv-body">
-            <div class="f-tick" style="background:var(--tbg);border-color:var(--tbdr)"><div class="f-tick-orb" style="background:conic-gradient(from var(--ca),#0369A1,#38BDF8,#0369A1)">F</div><div class="f-tick-txt" style="color:var(--td)" id="bizTick">Freya: generating 6 email sequence variants for Q3 launch…</div><div class="f-tick-dot"></div></div>
+            <div class="f-tick" style="background:var(--tbg);border-color:var(--tbdr)"><div class="f-tick-orb" style="background:conic-gradient(from var(--ca),#0369A1,#38BDF8,#0369A1)"><img class="freya-mark-img" src="assets/logos/freya-mark.svg" alt="" decoding="async" loading="lazy"/></div><div class="f-tick-txt" style="color:var(--td)" id="bizTick">Freya: generating 6 email sequence variants for Q3 launch…</div><div class="f-tick-dot"></div></div>
             <div class="iv-metric-grid">
               <div class="iv-m"><div class="iv-m-lbl">PIPELINE THIS MONTH</div><div class="iv-m-val" style="color:var(--td)">$2.4M</div><div class="iv-m-sub" style="color:var(--green)">↑ 34% vs last month</div></div>
               <div class="iv-m"><div class="iv-m-lbl">MQL RESPONSE</div><div class="iv-m-val" style="color:var(--td)">&lt;30m</div><div class="iv-m-sub" style="color:var(--ink3)">Was 27 hrs average</div></div>
@@ -1475,7 +1474,7 @@ html[data-theme="dark"] .ai-svg-icon {
           <div class="iv-bar"><div class="iv-dots"><div class="iv-dot" style="background:#EF4444"></div><div class="iv-dot" style="background:#F59E0B"></div><div class="iv-dot" style="background:#10B981"></div></div><div class="iv-url">antarious.app / programme-ops</div><div class="iv-live"><span class="iv-ldot"></span>LIVE</div></div>
           <div class="iv-prog"><div class="iv-pf" style="background:linear-gradient(90deg,#34D399,#059669)"></div></div>
           <div class="iv-body">
-            <div class="f-tick" style="background:var(--gbg);border-color:var(--gbdr)"><div class="f-tick-orb" style="background:conic-gradient(from var(--ca),#047857,#34D399,#047857)">F</div><div class="f-tick-txt" style="color:#059669" id="ngoTick">Freya: drafting Q2 donor report from live field data…</div><div class="f-tick-dot"></div></div>
+            <div class="f-tick" style="background:var(--gbg);border-color:var(--gbdr)"><div class="f-tick-orb" style="background:conic-gradient(from var(--ca),#047857,#34D399,#047857)"><img class="freya-mark-img" src="assets/logos/freya-mark.svg" alt="" decoding="async" loading="lazy"/></div><div class="f-tick-txt" style="color:#059669" id="ngoTick">Freya: drafting Q2 donor report from live field data…</div><div class="f-tick-dot"></div></div>
             <div class="iv-metric-grid">
               <div class="iv-m"><div class="iv-m-lbl">BENEFICIARIES TRACKED</div><div class="iv-m-val" style="color:#059669">20,482</div><div class="iv-m-sub" style="color:var(--ink3)">Across 280 partner orgs</div></div>
               <div class="iv-m"><div class="iv-m-lbl">REPORT TIME</div><div class="iv-m-val" style="color:#059669">4 min</div><div class="iv-m-sub" style="color:var(--ink3)">Was 2–3 officer-days</div></div>
@@ -1543,7 +1542,7 @@ html[data-theme="dark"] .ai-svg-icon {
           <div class="iv-bar"><div class="iv-dots"><div class="iv-dot" style="background:#EF4444"></div><div class="iv-dot" style="background:#F59E0B"></div><div class="iv-dot" style="background:#10B981"></div></div><div class="iv-url">antarious.app / policy-ops</div><div class="iv-live"><span class="iv-ldot"></span>LIVE</div></div>
           <div class="iv-prog"><div class="iv-pf" style="background:linear-gradient(90deg,#B04A74,#660033)"></div></div>
           <div class="iv-body">
-            <div class="f-tick" style="background:rgba(102,0,51,.07);border-color:rgba(102,0,51,.2)"><div class="f-tick-orb" style="background:conic-gradient(from var(--ca),#4D0028,#B04A74,#4D0028)">F</div><div class="f-tick-txt" style="color:#660033" id="govTick">Freya: compiling ministerial morning brief across 24 departments…</div><div class="f-tick-dot"></div></div>
+            <div class="f-tick" style="background:rgba(102,0,51,.07);border-color:rgba(102,0,51,.2)"><div class="f-tick-orb" style="background:conic-gradient(from var(--ca),#4D0028,#B04A74,#4D0028)"><img class="freya-mark-img" src="assets/logos/freya-mark.svg" alt="" decoding="async" loading="lazy"/></div><div class="f-tick-txt" style="color:#660033" id="govTick">Freya: compiling ministerial morning brief across 24 departments…</div><div class="f-tick-dot"></div></div>
             <div class="iv-metric-grid">
               <div class="iv-m"><div class="iv-m-lbl">DEPT KPI COMPLIANCE</div><div class="iv-m-val" style="color:#660033">87%</div><div class="iv-m-sub" style="color:var(--green)">↑ 12pp vs Q1</div></div>
               <div class="iv-m"><div class="iv-m-lbl">OPEN AUDIT FLAGS</div><div class="iv-m-val" style="color:var(--green)">0</div><div class="iv-m-sub" style="color:var(--ink3)">All obligations current</div></div>
@@ -1721,7 +1720,6 @@ html[data-theme="dark"] .ai-svg-icon {
           <li><a class="footer-lnk" href="business.html">For Business</a></li>
           <li><a class="footer-lnk" href="government.html">For Government</a></li>
           <li><a class="footer-lnk" href="ngo.html">For NGO</a></li>
-          <li><a class="footer-lnk" href="freya.html">Cross-Industry Freya</a></li>
         </ul>
       </div>
       <div>
@@ -1754,8 +1752,7 @@ html[data-theme="dark"] .ai-svg-icon {
       </div>
     </div>
     <div class="footer-bottom">
-      <div class="footer-copy">(c) 2026 Antarious. All rights reserved.</div>
-      <div class="footer-badges"><span class="footer-badge">HUMAN-IN-THE-LOOP</span><span class="footer-badge">AUDITABLE AI</span><span class="footer-badge">CROSS-INDUSTRY</span><span class="footer-badge">PREMIUM DEPLOYMENT</span></div>
+      <div class="footer-copy">Copyright © 2026 Antarious AI. All rights reserved.</div>
     </div>
   </div>
 </footer>
