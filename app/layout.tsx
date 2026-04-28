@@ -6,8 +6,9 @@ import { getOrganizationSchema, getWebsiteSchema } from "@/lib/structured-data";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Antarious",
-  description: "Antarious website migration",
+  title: { default: "Antarious AI", template: "%s | Antarious" },
+  description:
+    "Antarious AI — the agentic operating system for enterprise, government, and NGO operations. Human approval, audit trails, sector-ready agents.",
   metadataBase: new URL(getSiteUrl()),
   other: {
     "color-scheme": "light",

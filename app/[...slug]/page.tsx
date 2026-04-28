@@ -6,6 +6,7 @@ import { buildFaqSchema, extractFaqItemsFromBodyHtml } from "@/lib/faq-schema";
 import { loadLegacyHtml } from "@/lib/legacy-html";
 import { getLegacyPageByRoute, LEGACY_PAGES } from "@/lib/page-map";
 import { buildPageMetadata } from "@/lib/seo";
+import { getFreyaProductSchema } from "@/lib/structured-data";
 
 type PageProps = {
   params: Promise<{ slug: string[] }>;
@@ -50,6 +51,7 @@ export default async function CatchAllLegacyPage({ params }: PageProps) {
     route === "/faq/comprehensive"
       ? buildFaqSchema(extractFaqItemsFromBodyHtml(page.bodyHtml))
       : null;
+  const freyaSchema = route === "/freya" ? getFreyaProductSchema() : null;
 
   return (
     <>
@@ -57,6 +59,12 @@ export default async function CatchAllLegacyPage({ params }: PageProps) {
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+        />
+      ) : null}
+      {freyaSchema ? (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(freyaSchema) }}
         />
       ) : null}
       <LegacyPage
